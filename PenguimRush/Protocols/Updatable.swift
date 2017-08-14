@@ -10,7 +10,6 @@ import SpriteKit
 
 protocol Updatable: class {
     
-    var timer: Timer { get set }
     var updateRate: Double { get }
     
     func updateScheduler()
