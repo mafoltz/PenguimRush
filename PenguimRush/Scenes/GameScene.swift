@@ -13,6 +13,7 @@ class GameScene: SKScene {
     private var cam: SKCameraNode!
     
     private var penguim: Penguim!
+    private var hud: Hud!
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
@@ -20,6 +21,9 @@ class GameScene: SKScene {
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
         self.backgroundColor = UIColor.white
+        
+        self.hud = Hud()
+        self.addChild(self.hud)
         
         self.penguim = Penguim()
         self.addChild(self.penguim)
@@ -34,9 +38,11 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        
         if penguim.position.y >= 0 {
             self.cam.position.y = penguim.position.y + (self.size.height*0.25)
-//            self.hud.position.y = self.cam.position.y
+            self.hud.position.y = self.cam.position.y
         }
+        
     }
 }
