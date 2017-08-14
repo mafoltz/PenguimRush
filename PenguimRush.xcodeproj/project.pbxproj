@@ -25,6 +25,7 @@
 		57369C351F42111A00692C16 /* SKNodeScaleableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C321F42111A00692C16 /* SKNodeScaleableExtension.swift */; };
 		57369C361F42111A00692C16 /* SKNodeUpdatableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C331F42111A00692C16 /* SKNodeUpdatableExtension.swift */; };
 		5763C7E31F4231E9000C6DE8 /* ObstacleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5763C7E21F4231E9000C6DE8 /* ObstacleType.swift */; };
+		5763C7E51F4232BA000C6DE8 /* Environments.json in Resources */ = {isa = PBXBuildFile; fileRef = 5763C7E41F4232BA000C6DE8 /* Environments.json */; };
 		57E1909D1F42302700873D96 /* JsonReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1909C1F42302700873D96 /* JsonReader.swift */; };
 		91221B3C1F4221FC0055A114 /* ColliderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91221B3B1F4221FC0055A114 /* ColliderType.swift */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,7 @@
 		57369C321F42111A00692C16 /* SKNodeScaleableExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SKNodeScaleableExtension.swift; path = Extensions/SKNodeScaleableExtension.swift; sourceTree = "<group>"; };
 		57369C331F42111A00692C16 /* SKNodeUpdatableExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SKNodeUpdatableExtension.swift; path = Extensions/SKNodeUpdatableExtension.swift; sourceTree = "<group>"; };
 		5763C7E21F4231E9000C6DE8 /* ObstacleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObstacleType.swift; path = Models/ObstacleType.swift; sourceTree = "<group>"; };
+		5763C7E41F4232BA000C6DE8 /* Environments.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Environments.json; path = Util/Environments.json; sourceTree = "<group>"; };
 		57E1909C1F42302700873D96 /* JsonReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JsonReader.swift; path = Util/JsonReader.swift; sourceTree = "<group>"; };
 		91221B3B1F4221FC0055A114 /* ColliderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColliderType.swift; path = Models/ColliderType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,9 +127,9 @@
 			children = (
 				57369C231F420E4600692C16 /* Protocols */,
 				57369C301F4210C600692C16 /* Extensions */,
-				57E1909B1F422DC000873D96 /* Util */,
 				57369C211F420E3500692C16 /* Elements */,
 				57369C221F420E4000692C16 /* Scenes */,
+				57E1909B1F422DC000873D96 /* Util */,
 				91221B3A1F4221AF0055A114 /* Models */,
 				57369BEE1F420E1E00692C16 /* AppDelegate.swift */,
 				57369BF81F420E1E00692C16 /* GameViewController.swift */,
@@ -198,6 +200,7 @@
 		57E1909B1F422DC000873D96 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				5763C7E41F4232BA000C6DE8 /* Environments.json */,
 				57E1909C1F42302700873D96 /* JsonReader.swift */,
 			);
 			name = Util;
@@ -322,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57369BF31F420E1E00692C16 /* Actions.sks in Resources */,
+				5763C7E51F4232BA000C6DE8 /* Environments.json in Resources */,
 				57369BF51F420E1E00692C16 /* Game.xcassets in Resources */,
 				57369BFC1F420E1E00692C16 /* Main.storyboard in Resources */,
 				57369BFE1F420E1E00692C16 /* Assets.xcassets in Resources */,

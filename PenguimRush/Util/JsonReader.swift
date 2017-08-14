@@ -12,13 +12,13 @@ class JsonReader: Any {
     
     // MARK: - Methods
     
-    static func openJson(named filename: String) -> [[String: Any]]? {
+    static func openJson(named filename: String) -> [[[String: Any]]]? {
         do {
             if let file = Bundle.main.url(forResource: filename, withExtension: "json") {
                 let data = try Data(contentsOf: file)
                 let json = try JSONSerialization.jsonObject(with: data, options: [])
                 
-                if let jsonContent = json as? [[String: Any]] {
+                if let jsonContent = json as? [[[String: Any]]] {
                     return jsonContent
                 }
                 else {
@@ -32,5 +32,9 @@ class JsonReader: Any {
         }
         
         return nil
+    }
+    
+    static func loadEnvironment(from json: [[[String: Any]]], index: Int) -> Environment? {
+        return Environment(from: json, index: index)
     }
 }
