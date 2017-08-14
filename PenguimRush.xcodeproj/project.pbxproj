@@ -27,6 +27,7 @@
 		5763C7E31F4231E9000C6DE8 /* ObstacleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5763C7E21F4231E9000C6DE8 /* ObstacleType.swift */; };
 		57E1909D1F42302700873D96 /* JsonReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1909C1F42302700873D96 /* JsonReader.swift */; };
 		91221B3C1F4221FC0055A114 /* ColliderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91221B3B1F4221FC0055A114 /* ColliderType.swift */; };
+		91CB7E401F42421000448D01 /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB7E3F1F42421000448D01 /* Hud.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		5763C7E21F4231E9000C6DE8 /* ObstacleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObstacleType.swift; path = Models/ObstacleType.swift; sourceTree = "<group>"; };
 		57E1909C1F42302700873D96 /* JsonReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JsonReader.swift; path = Util/JsonReader.swift; sourceTree = "<group>"; };
 		91221B3B1F4221FC0055A114 /* ColliderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColliderType.swift; path = Models/ColliderType.swift; sourceTree = "<group>"; };
+		91CB7E3F1F42421000448D01 /* Hud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Hud.swift; path = Elements/Hud.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 		57369C211F420E3500692C16 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				91CB7E3F1F42421000448D01 /* Hud.swift */,
 				57369C261F420F3500692C16 /* Penguim.swift */,
 				57369C281F420F6B00692C16 /* Environment.swift */,
 				57369C2A1F420F8000692C16 /* Obstacle.swift */,
@@ -280,6 +283,7 @@
 				TargetAttributes = {
 					57369BEA1F420E1E00692C16 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = JM5PLAS48Y;
 						ProvisioningStyle = Automatic;
 					};
 					57369C031F420E1E00692C16 = {
@@ -354,6 +358,7 @@
 				91221B3C1F4221FC0055A114 /* ColliderType.swift in Sources */,
 				57369C341F42111A00692C16 /* CGFloatExtension.swift in Sources */,
 				57369C271F420F3500692C16 /* Penguim.swift in Sources */,
+				91CB7E401F42421000448D01 /* Hud.swift in Sources */,
 				57369C2E1F4210B400692C16 /* Scaleable.swift in Sources */,
 				57E1909D1F42302700873D96 /* JsonReader.swift in Sources */,
 				57369C2B1F420F8000692C16 /* Obstacle.swift in Sources */,
@@ -507,7 +512,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = JM5PLAS48Y;
 				INFOPLIST_FILE = PenguimRush/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mafoltz.PenguimRush;
@@ -521,7 +526,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = JM5PLAS48Y;
 				INFOPLIST_FILE = PenguimRush/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mafoltz.PenguimRush;
