@@ -1,0 +1,603 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		57369BEF1F420E1E00692C16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369BEE1F420E1E00692C16 /* AppDelegate.swift */; };
+		57369BF31F420E1E00692C16 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 57369BF21F420E1E00692C16 /* Actions.sks */; };
+		57369BF51F420E1E00692C16 /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57369BF41F420E1E00692C16 /* Game.xcassets */; };
+		57369BF91F420E1E00692C16 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369BF81F420E1E00692C16 /* GameViewController.swift */; };
+		57369BFC1F420E1E00692C16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57369BFA1F420E1E00692C16 /* Main.storyboard */; };
+		57369BFE1F420E1E00692C16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57369BFD1F420E1E00692C16 /* Assets.xcassets */; };
+		57369C091F420E1E00692C16 /* PenguimRushTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C081F420E1E00692C16 /* PenguimRushTests.swift */; };
+		57369C141F420E1E00692C16 /* PenguimRushUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C131F420E1E00692C16 /* PenguimRushUITests.swift */; };
+		57369C251F420ED500692C16 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C241F420ED500692C16 /* GameScene.swift */; };
+		57369C271F420F3500692C16 /* Penguim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C261F420F3500692C16 /* Penguim.swift */; };
+		57369C291F420F6B00692C16 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C281F420F6B00692C16 /* Environment.swift */; };
+		57369C2B1F420F8000692C16 /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C2A1F420F8000692C16 /* Obstacle.swift */; };
+		57369C2E1F4210B400692C16 /* Scaleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C2C1F4210B400692C16 /* Scaleable.swift */; };
+		57369C2F1F4210B400692C16 /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C2D1F4210B400692C16 /* Updatable.swift */; };
+		57369C341F42111A00692C16 /* CGFloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C311F42111A00692C16 /* CGFloatExtension.swift */; };
+		57369C351F42111A00692C16 /* SKNodeScaleableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C321F42111A00692C16 /* SKNodeScaleableExtension.swift */; };
+		57369C361F42111A00692C16 /* SKNodeUpdatableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C331F42111A00692C16 /* SKNodeUpdatableExtension.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		57369C051F420E1E00692C16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 57369BE31F420E1E00692C16 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 57369BEA1F420E1E00692C16;
+			remoteInfo = PenguimRush;
+		};
+		57369C101F420E1E00692C16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 57369BE31F420E1E00692C16 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 57369BEA1F420E1E00692C16;
+			remoteInfo = PenguimRush;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		57369BEB1F420E1E00692C16 /* PenguimRush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenguimRush.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		57369BEE1F420E1E00692C16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		57369BF21F420E1E00692C16 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		57369BF41F420E1E00692C16 /* Game.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Game.xcassets; sourceTree = "<group>"; };
+		57369BF81F420E1E00692C16 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		57369BFB1F420E1E00692C16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		57369BFD1F420E1E00692C16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		57369BFF1F420E1E00692C16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57369C041F420E1E00692C16 /* PenguimRushTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PenguimRushTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		57369C081F420E1E00692C16 /* PenguimRushTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenguimRushTests.swift; sourceTree = "<group>"; };
+		57369C0A1F420E1E00692C16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57369C0F1F420E1E00692C16 /* PenguimRushUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PenguimRushUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		57369C131F420E1E00692C16 /* PenguimRushUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenguimRushUITests.swift; sourceTree = "<group>"; };
+		57369C151F420E1E00692C16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57369C241F420ED500692C16 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameScene.swift; path = Scenes/GameScene.swift; sourceTree = "<group>"; };
+		57369C261F420F3500692C16 /* Penguim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Penguim.swift; path = Elements/Penguim.swift; sourceTree = "<group>"; };
+		57369C281F420F6B00692C16 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Environment.swift; path = Elements/Environment.swift; sourceTree = "<group>"; };
+		57369C2A1F420F8000692C16 /* Obstacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Obstacle.swift; path = Elements/Obstacle.swift; sourceTree = "<group>"; };
+		57369C2C1F4210B400692C16 /* Scaleable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Scaleable.swift; path = Protocols/Scaleable.swift; sourceTree = "<group>"; };
+		57369C2D1F4210B400692C16 /* Updatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Updatable.swift; path = Protocols/Updatable.swift; sourceTree = "<group>"; };
+		57369C311F42111A00692C16 /* CGFloatExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGFloatExtension.swift; path = Extensions/CGFloatExtension.swift; sourceTree = "<group>"; };
+		57369C321F42111A00692C16 /* SKNodeScaleableExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SKNodeScaleableExtension.swift; path = Extensions/SKNodeScaleableExtension.swift; sourceTree = "<group>"; };
+		57369C331F42111A00692C16 /* SKNodeUpdatableExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SKNodeUpdatableExtension.swift; path = Extensions/SKNodeUpdatableExtension.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		57369BE81F420E1E00692C16 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57369C011F420E1E00692C16 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57369C0C1F420E1E00692C16 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		57369BE21F420E1E00692C16 = {
+			isa = PBXGroup;
+			children = (
+				57369BED1F420E1E00692C16 /* PenguimRush */,
+				57369C071F420E1E00692C16 /* PenguimRushTests */,
+				57369C121F420E1E00692C16 /* PenguimRushUITests */,
+				57369BEC1F420E1E00692C16 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		57369BEC1F420E1E00692C16 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				57369BEB1F420E1E00692C16 /* PenguimRush.app */,
+				57369C041F420E1E00692C16 /* PenguimRushTests.xctest */,
+				57369C0F1F420E1E00692C16 /* PenguimRushUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		57369BED1F420E1E00692C16 /* PenguimRush */ = {
+			isa = PBXGroup;
+			children = (
+				57369C231F420E4600692C16 /* Protocols */,
+				57369C301F4210C600692C16 /* Extensions */,
+				57369C211F420E3500692C16 /* Elements */,
+				57369C221F420E4000692C16 /* Scenes */,
+				57369BEE1F420E1E00692C16 /* AppDelegate.swift */,
+				57369BF81F420E1E00692C16 /* GameViewController.swift */,
+				57369BF21F420E1E00692C16 /* Actions.sks */,
+				57369BFA1F420E1E00692C16 /* Main.storyboard */,
+				57369BF41F420E1E00692C16 /* Game.xcassets */,
+				57369BFD1F420E1E00692C16 /* Assets.xcassets */,
+				57369BFF1F420E1E00692C16 /* Info.plist */,
+			);
+			path = PenguimRush;
+			sourceTree = "<group>";
+		};
+		57369C071F420E1E00692C16 /* PenguimRushTests */ = {
+			isa = PBXGroup;
+			children = (
+				57369C081F420E1E00692C16 /* PenguimRushTests.swift */,
+				57369C0A1F420E1E00692C16 /* Info.plist */,
+			);
+			path = PenguimRushTests;
+			sourceTree = "<group>";
+		};
+		57369C121F420E1E00692C16 /* PenguimRushUITests */ = {
+			isa = PBXGroup;
+			children = (
+				57369C131F420E1E00692C16 /* PenguimRushUITests.swift */,
+				57369C151F420E1E00692C16 /* Info.plist */,
+			);
+			path = PenguimRushUITests;
+			sourceTree = "<group>";
+		};
+		57369C211F420E3500692C16 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				57369C261F420F3500692C16 /* Penguim.swift */,
+				57369C281F420F6B00692C16 /* Environment.swift */,
+				57369C2A1F420F8000692C16 /* Obstacle.swift */,
+			);
+			name = Elements;
+			sourceTree = "<group>";
+		};
+		57369C221F420E4000692C16 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				57369C241F420ED500692C16 /* GameScene.swift */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		57369C231F420E4600692C16 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				57369C2C1F4210B400692C16 /* Scaleable.swift */,
+				57369C2D1F4210B400692C16 /* Updatable.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		57369C301F4210C600692C16 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				57369C311F42111A00692C16 /* CGFloatExtension.swift */,
+				57369C321F42111A00692C16 /* SKNodeScaleableExtension.swift */,
+				57369C331F42111A00692C16 /* SKNodeUpdatableExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		57369BEA1F420E1E00692C16 /* PenguimRush */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57369C181F420E1E00692C16 /* Build configuration list for PBXNativeTarget "PenguimRush" */;
+			buildPhases = (
+				57369BE71F420E1E00692C16 /* Sources */,
+				57369BE81F420E1E00692C16 /* Frameworks */,
+				57369BE91F420E1E00692C16 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PenguimRush;
+			productName = PenguimRush;
+			productReference = 57369BEB1F420E1E00692C16 /* PenguimRush.app */;
+			productType = "com.apple.product-type.application";
+		};
+		57369C031F420E1E00692C16 /* PenguimRushTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57369C1B1F420E1E00692C16 /* Build configuration list for PBXNativeTarget "PenguimRushTests" */;
+			buildPhases = (
+				57369C001F420E1E00692C16 /* Sources */,
+				57369C011F420E1E00692C16 /* Frameworks */,
+				57369C021F420E1E00692C16 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				57369C061F420E1E00692C16 /* PBXTargetDependency */,
+			);
+			name = PenguimRushTests;
+			productName = PenguimRushTests;
+			productReference = 57369C041F420E1E00692C16 /* PenguimRushTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		57369C0E1F420E1E00692C16 /* PenguimRushUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57369C1E1F420E1E00692C16 /* Build configuration list for PBXNativeTarget "PenguimRushUITests" */;
+			buildPhases = (
+				57369C0B1F420E1E00692C16 /* Sources */,
+				57369C0C1F420E1E00692C16 /* Frameworks */,
+				57369C0D1F420E1E00692C16 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				57369C111F420E1E00692C16 /* PBXTargetDependency */,
+			);
+			name = PenguimRushUITests;
+			productName = PenguimRushUITests;
+			productReference = 57369C0F1F420E1E00692C16 /* PenguimRushUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		57369BE31F420E1E00692C16 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Marcelo Andrighetto Foltz";
+				TargetAttributes = {
+					57369BEA1F420E1E00692C16 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = VXAGBDYAT9;
+						ProvisioningStyle = Automatic;
+					};
+					57369C031F420E1E00692C16 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = VXAGBDYAT9;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 57369BEA1F420E1E00692C16;
+					};
+					57369C0E1F420E1E00692C16 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = VXAGBDYAT9;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 57369BEA1F420E1E00692C16;
+					};
+				};
+			};
+			buildConfigurationList = 57369BE61F420E1E00692C16 /* Build configuration list for PBXProject "PenguimRush" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 57369BE21F420E1E00692C16;
+			productRefGroup = 57369BEC1F420E1E00692C16 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				57369BEA1F420E1E00692C16 /* PenguimRush */,
+				57369C031F420E1E00692C16 /* PenguimRushTests */,
+				57369C0E1F420E1E00692C16 /* PenguimRushUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		57369BE91F420E1E00692C16 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57369BF31F420E1E00692C16 /* Actions.sks in Resources */,
+				57369BF51F420E1E00692C16 /* Game.xcassets in Resources */,
+				57369BFC1F420E1E00692C16 /* Main.storyboard in Resources */,
+				57369BFE1F420E1E00692C16 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57369C021F420E1E00692C16 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57369C0D1F420E1E00692C16 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		57369BE71F420E1E00692C16 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57369C251F420ED500692C16 /* GameScene.swift in Sources */,
+				57369C341F42111A00692C16 /* CGFloatExtension.swift in Sources */,
+				57369C271F420F3500692C16 /* Penguim.swift in Sources */,
+				57369C2E1F4210B400692C16 /* Scaleable.swift in Sources */,
+				57369C2B1F420F8000692C16 /* Obstacle.swift in Sources */,
+				57369C2F1F4210B400692C16 /* Updatable.swift in Sources */,
+				57369BF91F420E1E00692C16 /* GameViewController.swift in Sources */,
+				57369BEF1F420E1E00692C16 /* AppDelegate.swift in Sources */,
+				57369C351F42111A00692C16 /* SKNodeScaleableExtension.swift in Sources */,
+				57369C361F42111A00692C16 /* SKNodeUpdatableExtension.swift in Sources */,
+				57369C291F420F6B00692C16 /* Environment.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57369C001F420E1E00692C16 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57369C091F420E1E00692C16 /* PenguimRushTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57369C0B1F420E1E00692C16 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57369C141F420E1E00692C16 /* PenguimRushUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		57369C061F420E1E00692C16 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 57369BEA1F420E1E00692C16 /* PenguimRush */;
+			targetProxy = 57369C051F420E1E00692C16 /* PBXContainerItemProxy */;
+		};
+		57369C111F420E1E00692C16 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 57369BEA1F420E1E00692C16 /* PenguimRush */;
+			targetProxy = 57369C101F420E1E00692C16 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		57369BFA1F420E1E00692C16 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				57369BFB1F420E1E00692C16 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		57369C161F420E1E00692C16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Debug;
+		};
+		57369C171F420E1E00692C16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		57369C191F420E1E00692C16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = VXAGBDYAT9;
+				INFOPLIST_FILE = PenguimRush/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mafoltz.PenguimRush;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		57369C1A1F420E1E00692C16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = VXAGBDYAT9;
+				INFOPLIST_FILE = PenguimRush/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mafoltz.PenguimRush;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		57369C1C1F420E1E00692C16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = VXAGBDYAT9;
+				INFOPLIST_FILE = PenguimRushTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mafoltz.PenguimRushTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PenguimRush.app/PenguimRush";
+			};
+			name = Debug;
+		};
+		57369C1D1F420E1E00692C16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = VXAGBDYAT9;
+				INFOPLIST_FILE = PenguimRushTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mafoltz.PenguimRushTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PenguimRush.app/PenguimRush";
+			};
+			name = Release;
+		};
+		57369C1F1F420E1E00692C16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = VXAGBDYAT9;
+				INFOPLIST_FILE = PenguimRushUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mafoltz.PenguimRushUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = PenguimRush;
+			};
+			name = Debug;
+		};
+		57369C201F420E1E00692C16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = VXAGBDYAT9;
+				INFOPLIST_FILE = PenguimRushUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mafoltz.PenguimRushUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = PenguimRush;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		57369BE61F420E1E00692C16 /* Build configuration list for PBXProject "PenguimRush" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57369C161F420E1E00692C16 /* Debug */,
+				57369C171F420E1E00692C16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57369C181F420E1E00692C16 /* Build configuration list for PBXNativeTarget "PenguimRush" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57369C191F420E1E00692C16 /* Debug */,
+				57369C1A1F420E1E00692C16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		57369C1B1F420E1E00692C16 /* Build configuration list for PBXNativeTarget "PenguimRushTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57369C1C1F420E1E00692C16 /* Debug */,
+				57369C1D1F420E1E00692C16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		57369C1E1F420E1E00692C16 /* Build configuration list for PBXNativeTarget "PenguimRushUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57369C1F1F420E1E00692C16 /* Debug */,
+				57369C201F420E1E00692C16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 57369BE31F420E1E00692C16 /* Project object */;
+}
