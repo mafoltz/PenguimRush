@@ -9,9 +9,6 @@
 import UIKit
 
 class JsonReader: Any {
-    
-    // MARK: - Methods
-    
     static func openJson(named filename: String) -> [[[String: Any]]]? {
         do {
             if let file = Bundle.main.url(forResource: filename, withExtension: "json") {
@@ -32,9 +29,5 @@ class JsonReader: Any {
         }
         
         return nil
-    }
-    
-    static func loadEnvironment(from json: [[[String: Any]]], index: Int) -> Environment? {
-        return Environment(from: json, index: index)
     }
 }
