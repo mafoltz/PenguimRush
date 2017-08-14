@@ -24,6 +24,7 @@
 		57369C341F42111A00692C16 /* CGFloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C311F42111A00692C16 /* CGFloatExtension.swift */; };
 		57369C351F42111A00692C16 /* SKNodeScaleableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C321F42111A00692C16 /* SKNodeScaleableExtension.swift */; };
 		57369C361F42111A00692C16 /* SKNodeUpdatableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C331F42111A00692C16 /* SKNodeUpdatableExtension.swift */; };
+		57E1909D1F42302700873D96 /* JsonReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1909C1F42302700873D96 /* JsonReader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		57369C311F42111A00692C16 /* CGFloatExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGFloatExtension.swift; path = Extensions/CGFloatExtension.swift; sourceTree = "<group>"; };
 		57369C321F42111A00692C16 /* SKNodeScaleableExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SKNodeScaleableExtension.swift; path = Extensions/SKNodeScaleableExtension.swift; sourceTree = "<group>"; };
 		57369C331F42111A00692C16 /* SKNodeUpdatableExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SKNodeUpdatableExtension.swift; path = Extensions/SKNodeUpdatableExtension.swift; sourceTree = "<group>"; };
+		57E1909C1F42302700873D96 /* JsonReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JsonReader.swift; path = Util/JsonReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			children = (
 				57369C231F420E4600692C16 /* Protocols */,
 				57369C301F4210C600692C16 /* Extensions */,
+				57E1909B1F422DC000873D96 /* Util */,
 				57369C211F420E3500692C16 /* Elements */,
 				57369C221F420E4000692C16 /* Scenes */,
 				57369BEE1F420E1E00692C16 /* AppDelegate.swift */,
@@ -185,6 +188,14 @@
 				57369C331F42111A00692C16 /* SKNodeUpdatableExtension.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		57E1909B1F422DC000873D96 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				57E1909C1F42302700873D96 /* JsonReader.swift */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,6 +340,7 @@
 				57369C341F42111A00692C16 /* CGFloatExtension.swift in Sources */,
 				57369C271F420F3500692C16 /* Penguim.swift in Sources */,
 				57369C2E1F4210B400692C16 /* Scaleable.swift in Sources */,
+				57E1909D1F42302700873D96 /* JsonReader.swift in Sources */,
 				57369C2B1F420F8000692C16 /* Obstacle.swift in Sources */,
 				57369C2F1F4210B400692C16 /* Updatable.swift in Sources */,
 				57369BF91F420E1E00692C16 /* GameViewController.swift in Sources */,
@@ -580,6 +592,7 @@
 				57369C1A1F420E1E00692C16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		57369C1B1F420E1E00692C16 /* Build configuration list for PBXNativeTarget "PenguimRushTests" */ = {
 			isa = XCConfigurationList;
@@ -588,6 +601,7 @@
 				57369C1D1F420E1E00692C16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		57369C1E1F420E1E00692C16 /* Build configuration list for PBXNativeTarget "PenguimRushUITests" */ = {
 			isa = XCConfigurationList;
@@ -596,6 +610,7 @@
 				57369C201F420E1E00692C16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

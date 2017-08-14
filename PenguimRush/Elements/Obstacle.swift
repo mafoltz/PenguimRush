@@ -8,6 +8,23 @@
 
 import SpriteKit
 
-class Obstacle: SKNode {
+enum ObstacleType: String {
+    case tree = "Spaceship"
+    case rock = "rock"
+    case hole = "hole"
+}
 
+class Obstacle: SKSpriteNode {
+    
+    init(withType type: ObstacleType) {
+        let texture = SKTexture(imageNamed: type.rawValue)
+        let color = UIColor.clear
+        let size = texture.size()
+        
+        super.init(texture: texture, color: color, size: size)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
