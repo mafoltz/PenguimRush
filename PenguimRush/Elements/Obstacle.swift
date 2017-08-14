@@ -15,7 +15,7 @@ class Obstacle: SKSpriteNode {
         let color = UIColor.clear
         let size = texture.size()
         
-        super.init(texture: texture, color: color, size: size)
+        super.init(texture: SKTexture(imageNamed: "Spaceship"), color: color, size: size)
     }
     
     required init?(coder aDecoder: NSCoder) {
