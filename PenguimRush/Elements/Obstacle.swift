@@ -8,12 +8,6 @@
 
 import SpriteKit
 
-enum ObstacleType: String {
-    case tree = "Spaceship"
-    case rock = "rock"
-    case hole = "hole"
-}
-
 class Obstacle: SKSpriteNode {
     
     init(withType type: ObstacleType) {

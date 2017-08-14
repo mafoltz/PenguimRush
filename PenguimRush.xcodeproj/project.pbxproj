@@ -24,8 +24,9 @@
 		57369C341F42111A00692C16 /* CGFloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C311F42111A00692C16 /* CGFloatExtension.swift */; };
 		57369C351F42111A00692C16 /* SKNodeScaleableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C321F42111A00692C16 /* SKNodeScaleableExtension.swift */; };
 		57369C361F42111A00692C16 /* SKNodeUpdatableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C331F42111A00692C16 /* SKNodeUpdatableExtension.swift */; };
-		91221B3C1F4221FC0055A114 /* ColliderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91221B3B1F4221FC0055A114 /* ColliderType.swift */; };
+		5763C7E31F4231E9000C6DE8 /* ObstacleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5763C7E21F4231E9000C6DE8 /* ObstacleType.swift */; };
 		57E1909D1F42302700873D96 /* JsonReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1909C1F42302700873D96 /* JsonReader.swift */; };
+		91221B3C1F4221FC0055A114 /* ColliderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91221B3B1F4221FC0055A114 /* ColliderType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +70,9 @@
 		57369C311F42111A00692C16 /* CGFloatExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGFloatExtension.swift; path = Extensions/CGFloatExtension.swift; sourceTree = "<group>"; };
 		57369C321F42111A00692C16 /* SKNodeScaleableExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SKNodeScaleableExtension.swift; path = Extensions/SKNodeScaleableExtension.swift; sourceTree = "<group>"; };
 		57369C331F42111A00692C16 /* SKNodeUpdatableExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SKNodeUpdatableExtension.swift; path = Extensions/SKNodeUpdatableExtension.swift; sourceTree = "<group>"; };
-		91221B3B1F4221FC0055A114 /* ColliderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColliderType.swift; path = Models/ColliderType.swift; sourceTree = "<group>"; };
+		5763C7E21F4231E9000C6DE8 /* ObstacleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObstacleType.swift; path = Models/ObstacleType.swift; sourceTree = "<group>"; };
 		57E1909C1F42302700873D96 /* JsonReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JsonReader.swift; path = Util/JsonReader.swift; sourceTree = "<group>"; };
+		91221B3B1F4221FC0055A114 /* ColliderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColliderType.swift; path = Models/ColliderType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,20 +195,21 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
-		91221B3A1F4221AF0055A114 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				91221B3B1F4221FC0055A114 /* ColliderType.swift */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
 		57E1909B1F422DC000873D96 /* Util */ = {
 			isa = PBXGroup;
 			children = (
 				57E1909C1F42302700873D96 /* JsonReader.swift */,
 			);
 			name = Util;
+			sourceTree = "<group>";
+		};
+		91221B3A1F4221AF0055A114 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				91221B3B1F4221FC0055A114 /* ColliderType.swift */,
+				5763C7E21F4231E9000C6DE8 /* ObstacleType.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5763C7E31F4231E9000C6DE8 /* ObstacleType.swift in Sources */,
 				57369C251F420ED500692C16 /* GameScene.swift in Sources */,
 				91221B3C1F4221FC0055A114 /* ColliderType.swift in Sources */,
 				57369C341F42111A00692C16 /* CGFloatExtension.swift in Sources */,
