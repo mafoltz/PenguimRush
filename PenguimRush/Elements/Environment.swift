@@ -12,12 +12,19 @@ class Environment: SKSpriteNode {
     
     var obstacles = [Obstacle]()
     
+    public var index: Int!
+    
     init(from json: [[String: Any]], index: Int) {
+        
+        self.index = index
+        
         let texture = SKTexture(imageNamed: "Background")
         let color = UIColor.clear
         let size = texture.size()
         
         super.init(texture: texture, color: color, size: size)
+        
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
         loadObstacles(from: json)
     }

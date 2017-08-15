@@ -11,51 +11,61 @@ import SpriteKit
 class Path: SKNode {
     
     private var availableEnvironments = [Environment]()
-    private var environment1: Environment!
-    private var environment2: Environment!
+    private var environments = [Environment]()
+    
+    private var lastObstacleYPosition = CGFloat(0)
+    
+    private var json: [[[String : Any]]]!
     
     override init() {
         super.init()
         
-        let json = JsonReader.openJson(named: "Environments")!
+        self.json = JsonReader.openJson(named: "Environments")!
         
-        for (index, environmentData) in json.enumerated() {
-            let environment = Environment(from: environmentData, index: index)
-            availableEnvironments.append(environment)
+        for _ in 1...2 {
+            updateEnvironment()
         }
-        
-        environment1 = getRandomEnvironment()
-        addChild(environment1)
-        
-        environment2 = getRandomEnvironment()
-        environment2.position.y = environment1.size.height
-        addChild(environment2)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func getRandomEnvironment() -> Environment {
-        let index = Int(arc4random_uniform(UInt32(availableEnvironments.count)))
-        return availableEnvironments.remove(at: index)
+    private func setPosition(forEnvironment environment: Environment){
+        environment.position.y = lastObstacleYPosition
+        lastObstacleYPosition += environment.size.height
+    }
+    
+    private func updateEnvironment() {
+        
+        let index = Int(arc4random_uniform(UInt32(json.count)))
+        
+        var newEnvironment = self.availableEnvironments.filter({ (environment) -> Bool in
+            return environment.index == index
+        }).first
+        
+        if newEnvironment == nil {
+            let environmentData = self.json[index]
+            newEnvironment = Environment(from: environmentData, index: index)
+            self.setPosition(forEnvironment: newEnvironment!)
+            self.addChild(newEnvironment!)
+            environments.append(newEnvironment!)
+        }
+        else{
+            let obstacleIndex = availableEnvironments.index(of: newEnvironment!)!
+            
+            self.setPosition(forEnvironment: newEnvironment!)
+            self.environments.append(availableEnvironments.remove(at: obstacleIndex))
+        }
     }
     
     func updatePosition(at currentPosition: CGPoint) {
-        if currentPosition.y > environment1.position.y {
-            let y = environment1.position.y + environment1.size.height + environment2.size.height
-            
-            availableEnvironments.append(environment1)
-            environment1 = getRandomEnvironment()
-            environment1.position.y = y
-        }
         
-        if currentPosition.y > environment2.position.y {
-            let y = environment2.position.y + environment1.size.height + environment2.size.height
-            
-            availableEnvironments.append(environment2)
-            environment2 = getRandomEnvironment()
-            environment2.position.y = y
+        
+        
+        if currentPosition.y - environments.first!.position.y > (environments.first!.size.height) {
+            self.availableEnvironments.append(environments.removeFirst())
+            updateEnvironment()
         }
     }
 }

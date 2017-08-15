@@ -21,9 +21,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
-        self.physicsWorld.contactDelegate = self
-        
         self.backgroundColor = UIColor.white
+        
+        self.startScene()
+        
+    }
+    
+    func startScene() {
+        
+        self.physicsWorld.contactDelegate = self
         
         self.hud = Hud()
         self.addChild(self.hud)
@@ -37,21 +43,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.cam = SKCameraNode()
         self.camera = self.cam
+        
+    }
+    
+    func cleanScene() {
+        
+        self.hud.removeFromParent()
+        
+        self.penguim.removeFromParent()
+        
+        self.path.removeFromParent()
+        
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
+        
+        self.physicsWorld.contactDelegate = nil
+        
         self.penguim.state = .Crashed
         
+        contact.bodyA.pinned = true
+        contact.bodyB.pinned = true
         
         let wait = SKAction.wait(forDuration: 2)
         let action = SKAction.run {
-            let gameScene = GameScene(size: self.frame.size)
-            gameScene.scaleMode = .aspectFill
-            self.view?.presentScene(gameScene)
+            
+            self.cleanScene()
+            self.startScene()
+            
         }
         
         self.run(SKAction.sequence([wait, action]))
-        
         
     }
     
@@ -60,9 +82,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.cam.position.y = penguim.position.y + (self.size.height*0.25)
             self.hud.position.y = self.cam.position.y
         
-            let screenTopPosition = CGPoint(x: cam.position.x,
-                                            y: cam.position.y - frame.size.height)
-            path.updatePosition(at: screenTopPosition)
+            self.path.updatePosition(at: self.cam.position)
 //        }
     }
 }

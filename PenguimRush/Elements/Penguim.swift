@@ -19,11 +19,11 @@ class Penguim: SKNode, Updatable, Scaleable {
         case Crashed
     }
     
+    private let actionTime = TimeInterval(0.15)
+    
     public var state = State.Stopped
     
     private var velocity: CGFloat!
-    
-    //    private let motionManager = CMMotionManager()
     
     override init() {
         super.init()
@@ -73,33 +73,46 @@ class Penguim: SKNode, Updatable, Scaleable {
                 self.position.x = -(screenWidth/2)
             }
             
-            var rotateAction: SKAction!
-            let actionTime = TimeInterval(0.15)
-            
             let controllers = GCController.controllers()
             let controller = controllers.first!
             
             if abs(controller.motion!.gravity.x) > 0.15 {
                 if controller.motion!.gravity.x > 0 {
-                    self.physicsBody?.applyImpulse(CGVector(dx: self.velocity*20, dy: self.velocity))
-                    rotateAction = SKAction.rotate(toAngle: -0.0872665, duration: actionTime)
+                    moveRight()
                 }
                 else{
-                    self.physicsBody?.applyImpulse(CGVector(dx: -(self.velocity*20), dy: self.velocity))
-                    rotateAction = SKAction.rotate(toAngle: 0.0872665, duration: actionTime)
+                    moveLeft()
                 }
             }
             else{
-                rotateAction = SKAction.rotate(toAngle: 0, duration: actionTime)
-            }
-            
-            
-            if self.action(forKey: "move") == nil {
-                self.run(rotateAction, withKey: "move")
+                moveCenter()
             }
         }
         else if self.state == .Crashed {
-            self.physicsBody?.pinned = true
+            
+        }
+    }
+    
+    public func moveLeft(){
+        self.physicsBody?.applyImpulse(CGVector(dx: -self.velocity*20, dy: self.velocity))
+        if self.action(forKey: "move") == nil {
+            let rotateAction = SKAction.rotate(toAngle: 0.0872665, duration: actionTime)
+            self.run(rotateAction, withKey: "move")
+        }
+    }
+    
+    public func moveRight(){
+        self.physicsBody?.applyImpulse(CGVector(dx: self.velocity*20, dy: self.velocity))
+        if self.action(forKey: "move") == nil {
+            let rotateAction = SKAction.rotate(toAngle: -0.0872665, duration: actionTime)
+            self.run(rotateAction, withKey: "move")
+        }
+    }
+    
+    public func moveCenter(){
+        if self.action(forKey: "move") == nil && self.zPosition != 0 {
+            let rotateAction = SKAction.rotate(toAngle: 0, duration: actionTime)
+            self.run(rotateAction, withKey: "move")
         }
     }
     

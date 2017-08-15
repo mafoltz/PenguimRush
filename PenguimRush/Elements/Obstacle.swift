@@ -22,7 +22,6 @@ class Obstacle: SKSpriteNode {
         self.physicsBody!.affectedByGravity = false
         self.physicsBody!.allowsRotation = false
         self.physicsBody!.friction = 0
-        self.physicsBody?.pinned = true
         self.physicsBody!.categoryBitMask = ColliderType.Obstacle.rawValue
         self.physicsBody!.contactTestBitMask = ColliderType.Penguin.rawValue
     }
