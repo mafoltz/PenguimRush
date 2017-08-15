@@ -16,6 +16,15 @@ class Obstacle: SKSpriteNode {
         let size = texture.size()
         
         super.init(texture: texture, color: color, size: size)
+        
+        self.physicsBody = SKPhysicsBody(texture: texture, size: size)
+        
+        self.physicsBody!.affectedByGravity = false
+        self.physicsBody!.allowsRotation = false
+        self.physicsBody!.friction = 0
+        self.physicsBody?.pinned = true
+        self.physicsBody!.categoryBitMask = ColliderType.Obstacle.rawValue
+        self.physicsBody!.contactTestBitMask = ColliderType.Penguin.rawValue
     }
     
     required init?(coder aDecoder: NSCoder) {
