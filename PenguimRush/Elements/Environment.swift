@@ -13,7 +13,7 @@ class Environment: SKSpriteNode {
     var obstacles = [Obstacle]()
     
     init(from json: [[String: Any]], index: Int) {
-        let texture = SKTexture(imageNamed: "SizeTest")
+        let texture = SKTexture(imageNamed: "Background")
         let color = UIColor.clear
         let size = texture.size()
         

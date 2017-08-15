@@ -9,7 +9,9 @@
 import Foundation
 
 enum ObstacleType: String {
-    case tree = "tree"
-    case rock = "rock"
-    case hole = "hole"
+    case Tree = "Tree"
+    case Rock = "Rock"
+    case Tent = "Tent"
+    case SnowHill = "SnowHill"
+    case Igloo = "Igloo"
 }
