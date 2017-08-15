@@ -89,7 +89,6 @@ class Penguim: SKNode, Updatable, Scaleable {
             }
         }
         else if self.state == .Crashed {
-            
         }
     }
     
