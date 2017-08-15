@@ -37,12 +37,13 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        
         if penguim.position.y >= 0 {
             self.cam.position.y = penguim.position.y + (self.size.height*0.25)
             self.hud.position.y = self.cam.position.y
         }
         
-        path.updatePosition(at: self.cam.position)
+        let screenTopPosition = CGPoint(x: cam.position.x,
+                                        y: cam.position.y - frame.size.height)
+        path.updatePosition(at: screenTopPosition)
     }
 }

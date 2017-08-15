@@ -28,6 +28,7 @@ class Path: SKNode {
         addChild(environment1)
         
         environment2 = getRandomEnvironment()
+        environment2.position.y = environment1.size.height
         addChild(environment2)
     }
     
@@ -42,15 +43,15 @@ class Path: SKNode {
     
     func updatePosition(at currentPosition: CGPoint) {
         if currentPosition.y > environment1.position.y {
-            let y = environment1.position.y + environment1.size.height
+            let y = environment1.position.y + environment1.size.height + environment2.size.height
             
             availableEnvironments.append(environment1)
             environment1 = getRandomEnvironment()
             environment1.position.y = y
         }
         
-        if currentPosition.y > environment2.position.y + environment2.size.height {
-            let y = environment2.position.y + environment2.size.height
+        if currentPosition.y > environment2.position.y {
+            let y = environment2.position.y + environment1.size.height + environment2.size.height
             
             availableEnvironments.append(environment2)
             environment2 = getRandomEnvironment()
