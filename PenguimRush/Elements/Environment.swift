@@ -12,14 +12,14 @@ class Environment: SKSpriteNode {
     
     var obstacles = [Obstacle]()
     
-    init(from json: [[[String: Any]]], index: Int) {
+    init(from json: [[String: Any]], index: Int) {
         let texture = SKTexture(imageNamed: "SizeTest")
         let color = UIColor.clear
         let size = texture.size()
         
         super.init(texture: texture, color: color, size: size)
         
-        loadObstacles(from: json[index])
+        loadObstacles(from: json)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -34,7 +34,8 @@ class Environment: SKSpriteNode {
             let z = item["z"] as! CGFloat
             
             let obstacle = Obstacle(withType: type!)
-            obstacle.run(SKAction.move(to: CGPoint(x: x, y: y), duration: 0))
+            obstacle.position.x = x
+            obstacle.position.y = y
             obstacle.zPosition = z
             
             obstacles.append(obstacle)
