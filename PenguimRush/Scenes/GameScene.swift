@@ -42,6 +42,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         self.penguim.state = .Crashed
         
+        contact.bodyA.pinned = true
+        contact.bodyB.pinned = true
         
         let wait = SKAction.wait(forDuration: 2)
         let action = SKAction.run {
