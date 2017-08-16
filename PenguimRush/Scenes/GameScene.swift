@@ -61,8 +61,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
         self.addChild(self.path)
         
         self.cam = SKCameraNode()
+        self.addChild(self.cam)
         self.camera = self.cam
         
+//        let moveCam = SKAction.move(by: CGVector(dx: 0, dy: 50), duration: 0.3)
+//        self.camera!.run(moveCam, withKey: "moveme")
+        
+//        self.camera!.run(SKAction.repeatForever(moveCam), withKey: "moveme")
     }
     
     func resetScene() {
@@ -142,13 +147,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
                 self.controllers.append(controller)
                 
                 let penguim = Penguim()
-                penguim.state = .Sliding
+                penguim.state = .Slide
                 self.addChild(penguim)
                 self.players.append(penguim)
             }
         }
         else{
-            self.cam.position.y = players.first!.position.y + (self.size.height*0.25)
+            
+            let moveCam = SKAction.move(to: CGPoint(x: 0, y: players.first!.position.y + (self.size.height*0.25) ), duration: 0.3)
+            self.camera!.run(moveCam)
             self.hud.position.y = self.cam.position.y
             self.path.updatePosition(at: self.cam.position)
         }
