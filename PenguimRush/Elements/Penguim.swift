@@ -80,7 +80,6 @@ class Penguim: SKNode, Updatable, Scaleable {
     
     public func moveLeft(){
         self.physicsBody!.applyImpulse(CGVector(dx: -self.size.width*0.1, dy: 0))
-        print(self.physicsBody!.velocity)
         if self.action(forKey: "move") == nil {
             let rotateAction = SKAction.rotate(toAngle: 0.0872665, duration: actionTime)
             self.run(rotateAction, withKey: "move")
