@@ -22,6 +22,7 @@ class Penguim: SKNode, Updatable, Scaleable {
     private let actionTime = TimeInterval(0.15)
     public var state = State.Stopped
     private var velocity: CGFloat!
+    private var impulseVelocity: CGFloat!
     private var sprite: SKSpriteNode!
     
     override init() {
@@ -45,7 +46,8 @@ class Penguim: SKNode, Updatable, Scaleable {
         
         self.position.y = -(UIScreen.main.bounds.height/2) + (self.size.height/2) + UIScreen.main.bounds.width*0.0673828125
         
-        self.velocity = self.size.height*1.25
+        self.velocity = 1.25 * self.size.height
+        self.impulseVelocity = 3 * self.size.height
         
         self.updateScheduler()
     }
@@ -54,36 +56,29 @@ class Penguim: SKNode, Updatable, Scaleable {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func walk() {
+        let beginToWalk = SKAction.animate(with: [
+            SKTexture(imageNamed: "PenguinWalk01"),
+            SKTexture(imageNamed: "PenguinWalk02")
+            ], timePerFrame: 0.3)
+        
+        let beginToImpulse = SKAction.animate(with: [SKTexture(imageNamed: "PenguinWalk03")], timePerFrame: 1.2)
+        let stopImpulse = SKAction.animate(with: [SKTexture(imageNamed: "PenguinWalk04")], timePerFrame: 0.3)
+        let impulseSequence = SKAction.sequence([beginToImpulse, stopImpulse])
+        
+        let impulse = SKAction.run {
+            self.physicsBody!.applyImpulse(CGVector(dx: 0, dy: self.impulseVelocity))
+        }
+        let takeImpulse = SKAction.group([impulseSequence, impulse])
+        
+        let oneStepAnimation = SKAction.sequence([beginToWalk, takeImpulse])
+        let walkAnimation = SKAction.repeatForever(oneStepAnimation)
+        self.sprite.run(walkAnimation, withKey: "animation")
+    }
+    
     func update(){
         if self.state == .Slide {
-            let animation1 = SKAction.animate(with: [
-                SKTexture(imageNamed: "PenguinWalk01"),
-                SKTexture(imageNamed: "PenguinWalk02")
-                ], timePerFrame: 0.3)
-            
-            let impulseAnimation = SKAction.run {
-                self.physicsBody!.applyImpulse(CGVector(dx: 0, dy: self.velocity))
-            }
-            
-            let animation2 = SKAction.sequence([SKAction.animate(with: [
-                SKTexture(imageNamed: "PenguinWalk03")
-                ], timePerFrame: 0.3), impulseAnimation])
-            
-            let animation3 = SKAction.animate(with: [SKTexture(imageNamed: "PenguinWalk04")], timePerFrame: 1.2)
-            
-            let animation = SKAction.sequence([animation1, animation2, animation3])
-            
-//            let animation = SKAction.animate(with: [
-//                SKTexture(imageNamed: "PenguinWalk01"),
-//                SKTexture(imageNamed: "PenguinWalk02"),
-//                SKTexture(imageNamed: "PenguinWalk03"),
-//                SKTexture(imageNamed: "PenguinWalk04")
-//                ], timePerFrame: 0.3)
-            
-            let forever = SKAction.repeatForever(animation)
-            
-            self.sprite.run(forever, withKey: "animation")
-            
+            self.walk()
             self.state = .Sliding
         }
         else if self.state == .Sliding {

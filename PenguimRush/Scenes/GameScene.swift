@@ -147,7 +147,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
             }
         }
         else{
-            
             let moveCam = SKAction.move(to: CGPoint(x: 0, y: players.first!.position.y + (self.size.height*0.25) ), duration: 0.3)
             self.camera!.run(moveCam)
             self.hud.position.y = self.cam.position.y
