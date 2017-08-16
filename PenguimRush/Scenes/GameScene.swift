@@ -77,9 +77,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
         blizzardParticle = SKEmitterNode(fileNamed: "Snow.sks")
         blizzardParticle.particlePositionRange = CGVector(dx: size.width, dy: size.height)
         blizzardParticle.particleSize = CGSize(width: 100, height: 100)
-        blizzardParticle.zPosition = 10.0
+        blizzardParticle.particleZPosition = 20.0
         blizzardParticle.targetNode = self.scene
-        
         addChild(blizzardParticle)
     }
     
@@ -170,7 +169,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
             let moveCam = SKAction.move(to: CGPoint(x: 0, y: players.first!.position.y + (self.size.height*0.25) ), duration: 0.3)
             self.camera!.run(moveCam)
             self.hud.position.y = self.cam.position.y
-            self.blizzardParticle.position.y = self.cam.position.y
+            self.blizzardParticle.position.y = self.cam.position.y + UIScreen.main.bounds.size.height / 2
             self.path.updatePosition(at: self.cam.position)
         }
         

@@ -39,7 +39,7 @@ class Penguim: SKNode, Updatable, Scaleable {
         
         self.addChild(sprite)
         
-        self.zPosition = 100
+        self.zPosition = 10.0
         
         self.physicsBody = SKPhysicsBody(texture: sprite.texture!, size: sprite.size)
         
