@@ -21,7 +21,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
-        self.backgroundColor = UIColor.white
+        self.backgroundColor = UIColor(colorLiteralRed: 237.0/255.0, green: 244.0/255.0, blue: 246.0/255.0, alpha: 1.0)
         
         self.startScene()
         
