@@ -11,13 +11,9 @@ import SpriteKit
 class Hud: SKNode, Updatable {
     
     private var size: CGSize!
-    
     private var score: SKLabelNode!
-    
     private var lastYPosition = CGFloat(0)
-    
     private var distance = CGFloat(0)
-    
     private var marginScore: CGFloat!
     
     override init() {
@@ -39,7 +35,6 @@ class Hud: SKNode, Updatable {
         self.addChild(self.score)
         
         updateScheduler()
-        
     }
     
     func update() {

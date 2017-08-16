@@ -12,9 +12,7 @@ class Path: SKNode {
     
     private var availableEnvironments = [Environment]()
     private var environments = [Environment]()
-    
     private var lastObstacleYPosition: CGFloat!
-    
     private var json: [[[String : Any]]]!
     
     override init() {
@@ -32,7 +30,6 @@ class Path: SKNode {
     }
     
     private func setPosition(forEnvironment environment: Environment){
-        
         if self.lastObstacleYPosition == nil {
             self.lastObstacleYPosition = -environment.size.height
         }
@@ -42,7 +39,6 @@ class Path: SKNode {
     }
     
     private func updateEnvironment() {
-        
         let index = Int(arc4random_uniform(UInt32(json.count)))
         
         var newEnvironment = self.availableEnvironments.filter({ (environment) -> Bool in

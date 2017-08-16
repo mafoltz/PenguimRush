@@ -12,7 +12,6 @@ class Environment: SKNode, Scaleable {
     
     private var scenary = [SKSpriteNode]()
     private var obstacles = [Obstacle]()
-    
     public var index: Int!
     var size: CGSize = CGSize(width: 0, height: 0)
     

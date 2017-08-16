@@ -18,7 +18,6 @@ class Obstacle: SKSpriteNode {
         super.init(texture: texture, color: color, size: size)
         
         self.physicsBody = SKPhysicsBody(texture: texture, size: size)
-        
         self.physicsBody!.affectedByGravity = false
         self.physicsBody!.allowsRotation = false
         self.physicsBody!.friction = 0

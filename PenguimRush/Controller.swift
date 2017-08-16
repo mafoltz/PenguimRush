@@ -12,7 +12,6 @@ import SpriteKit
 class Controller: SKNode, Updatable {
     
     private var contoller: GCController!
-    
     public var delegate: ControllerDelegate!
     public var playerIndex: Int!
     
@@ -28,17 +27,16 @@ class Controller: SKNode, Updatable {
     }
     
     func update() {
-            if abs(self.contoller.motion!.gravity.x) > 0.15 {
-                if self.contoller.motion!.gravity.x > 0 {
-                    self.delegate.moveRight(with: self.playerIndex)
-                }
-                else{
-                    self.delegate.moveLeft(with: self.playerIndex)
-                }
+        if abs(self.contoller.motion!.gravity.x) > 0.15 {
+            if self.contoller.motion!.gravity.x > 0 {
+                self.delegate.moveRight(with: self.playerIndex)
             }
-            else{
-                self.delegate.moveCenter(with: self.playerIndex)
+            else {
+                self.delegate.moveLeft(with: self.playerIndex)
             }
+        }
+        else {
+            self.delegate.moveCenter(with: self.playerIndex)
+        }
     }
-    
 }

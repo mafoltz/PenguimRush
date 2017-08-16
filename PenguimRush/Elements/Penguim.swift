@@ -11,8 +11,6 @@ import GameController
 
 class Penguim: SKNode, Updatable, Scaleable {
     
-    var size: CGSize = CGSize(width: 0, height: 0)
-    
     public enum State {
         case Stopped
         case Slide
@@ -20,18 +18,14 @@ class Penguim: SKNode, Updatable, Scaleable {
         case Crashed
     }
     
+    var size: CGSize = CGSize(width: 0, height: 0)
     private let actionTime = TimeInterval(0.15)
-    
     public var state = State.Stopped
-    
     private var velocity: CGFloat!
-    
     private var sprite: SKSpriteNode!
     
     override init() {
         super.init()
-        
-        //Rocket
         
         sprite = SKSpriteNode(imageNamed: "PenguinWalk01")
         
@@ -61,7 +55,6 @@ class Penguim: SKNode, Updatable, Scaleable {
     }
     
     func update(){
-        
         if self.state == .Slide {
             let animation1 = SKAction.animate(with: [
                 SKTexture(imageNamed: "PenguinWalk01"),
@@ -75,8 +68,6 @@ class Penguim: SKNode, Updatable, Scaleable {
             let animation2 = SKAction.sequence([SKAction.animate(with: [
                 SKTexture(imageNamed: "PenguinWalk03")
                 ], timePerFrame: 0.3), impulseAnimation])
-            
-            
             
             let animation3 = SKAction.animate(with: [SKTexture(imageNamed: "PenguinWalk04")], timePerFrame: 1.2)
             
@@ -135,5 +126,4 @@ class Penguim: SKNode, Updatable, Scaleable {
             self.run(rotateAction, withKey: "move")
         }
     }
-    
 }
