@@ -14,6 +14,8 @@ class Hud: SKNode, Updatable {
     
     private var score: SKLabelNode!
     
+    private var lastYPosition = CGFloat(0)
+    
     private var distance = CGFloat(0)
     
     private var marginScore: CGFloat!
@@ -48,10 +50,11 @@ class Hud: SKNode, Updatable {
         if let scene = self.parent as? SKScene {
             if let cam = scene.camera {
                 
-                let newDistance = cam.position.y/(self.size.height*0.95)
+                let difference = abs(cam.position.y - self.lastYPosition)
                 
-                if newDistance > self.distance {
-                    self.distance = newDistance
+                if difference > (self.size.height*0.01) {
+                    self.distance += 0.1
+                    self.lastYPosition = cam.position.y
                     if self.distance - CGFloat(Int(self.distance)) > 0 {
                         self.score.text = String(format: "%.1f m", self.distance)
                     }

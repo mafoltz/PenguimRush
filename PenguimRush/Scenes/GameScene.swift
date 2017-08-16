@@ -7,14 +7,36 @@
 //
 
 import SpriteKit
+import GameController
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
+    func moveLeft(with playerIndex: Int) {
+        if !self.players.isEmpty {
+            self.players[playerIndex].moveLeft()
+        }
+    }
+    
+    func moveRight(with playerIndex: Int) {
+        if !self.players.isEmpty {
+            self.players[playerIndex].moveRight()
+        }
+    }
+    
+    func moveCenter(with playerIndex: Int) {
+        if !self.players.isEmpty {
+            self.players[playerIndex].moveCenter()
+        }
+    }
+    
     
     private var cam: SKCameraNode!
     
-    private var penguim: Penguim!
     private var path: Path!
     private var hud: Hud!
+    
+    private var controllers = [Controller]()
+    
+    private var players = [Penguim]()
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
@@ -23,8 +45,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.backgroundColor = UIColor.white
         
-        self.startScene()
+        self.setUpControllerObservers()
         
+        self.startScene()
     }
     
     func startScene() {
@@ -34,10 +57,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.hud = Hud()
         self.addChild(self.hud)
         
-        self.penguim = Penguim()
-        self.penguim.state = .Sliding
-        self.addChild(self.penguim)
-        
         self.path = Path()
         self.addChild(self.path)
         
@@ -46,13 +65,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    func cleanScene() {
+    func resetScene() {
         
         self.hud.removeFromParent()
         
-        self.penguim.removeFromParent()
-        
         self.path.removeFromParent()
+        
+        for player in self.players {
+            player.removeFromParent()
+        }
+        
+        self.players = [Penguim]()
+        self.controllers = [Controller]()
+        
+        self.startScene()
         
     }
     
@@ -60,7 +86,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.physicsWorld.contactDelegate = nil
         
-        self.penguim.state = .Crashed
+        for player in self.players {
+            player.state = .Crashed
+        }
         
         contact.bodyA.pinned = true
         contact.bodyB.pinned = true
@@ -68,8 +96,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let wait = SKAction.wait(forDuration: 2)
         let action = SKAction.run {
             
-            self.cleanScene()
-            self.startScene()
+            self.resetScene()
             
         }
         
@@ -77,12 +104,54 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+        func controllerDisconnected(){
+            print("controllerDisconnected")
+            self.isPaused = true
+        }
+    
+        func connectControllers(){
+            self.isPaused = false
+    
+            print("Controllers = \(GCController.controllers().count)")
+            
+            for controller in GCController.controllers() {
+                if ( controller.extendedGamepad != nil) {
+                    //Ignore
+                } else if ( controller.gamepad != nil) {
+                    //Ignore
+                } else if ( controller.microGamepad != nil) {
+                    controller.microGamepad?.valueChangedHandler = nil
+                    setUpMicroController( controller )
+                }
+                
+            }
+    
+        }
+    
+        func setUpMicroController(_ controller: GCController){
+            self.controllers.append(Controller(with: controller))
+        }
+    
     override func update(_ currentTime: TimeInterval) {
-//        if penguim.position.y >= 0 {
-            self.cam.position.y = penguim.position.y + (self.size.height*0.25)
-            self.hud.position.y = self.cam.position.y
         
+        if self.players.isEmpty {
+            if !GCController.controllers().isEmpty {
+                let controller = Controller(with: GCController.controllers().first!)
+                controller.delegate = self
+                self.addChild(controller)
+                self.controllers.append(controller)
+                
+                let penguim = Penguim()
+                penguim.state = .Sliding
+                self.addChild(penguim)
+                self.players.append(penguim)
+            }
+        }
+        else{
+            self.cam.position.y = players.first!.position.y + (self.size.height*0.25)
+            self.hud.position.y = self.cam.position.y
             self.path.updatePosition(at: self.cam.position)
-//        }
+        }
+        
     }
 }
