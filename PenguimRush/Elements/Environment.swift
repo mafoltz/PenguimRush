@@ -23,6 +23,7 @@ class Environment: SKNode, Scaleable {
         self.size = UIScreen.main.bounds.size
         
         loadScenary()
+        loadScenaryTrees()
         loadObstacles(from: json)
     }
     
@@ -40,6 +41,22 @@ class Environment: SKNode, Scaleable {
         rightScenary.position.x = (size.width - rightScenary.size.width) / 2
         scenary.append(rightScenary)
         addChild(rightScenary)
+    }
+    
+    func loadScenaryTrees() {
+        let leftScenaryTreesType = ObstacleType(rawValue: "PineGroupLeft")!
+        let leftScenaryTrees = Obstacle(withType: leftScenaryTreesType)
+        leftScenaryTrees.position.x = (leftScenaryTrees.size.width - size.width) / 2
+        leftScenaryTrees.zPosition = 0.1
+        obstacles.append(leftScenaryTrees)
+        addChild(leftScenaryTrees)
+        
+        let rightScenaryTreesType = ObstacleType(rawValue: "PineGroupRight")!
+        let rightScenaryTrees = Obstacle(withType: rightScenaryTreesType)
+        rightScenaryTrees.position.x = (size.width - rightScenaryTrees.size.width) / 2
+        rightScenaryTrees.zPosition = 0.1
+        obstacles.append(rightScenaryTrees)
+        addChild(rightScenaryTrees)
     }
     
     func loadObstacles(from json: [[String: Any]]) {
