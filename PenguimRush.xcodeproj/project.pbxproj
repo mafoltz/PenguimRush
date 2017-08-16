@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		571B3E311F44D91600D3C2D5 /* Snow.sks in Resources */ = {isa = PBXBuildFile; fileRef = 571B3E301F44D91600D3C2D5 /* Snow.sks */; };
 		57369BEF1F420E1E00692C16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369BEE1F420E1E00692C16 /* AppDelegate.swift */; };
 		57369BF31F420E1E00692C16 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 57369BF21F420E1E00692C16 /* Actions.sks */; };
 		57369BF51F420E1E00692C16 /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57369BF41F420E1E00692C16 /* Game.xcassets */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		571B3E301F44D91600D3C2D5 /* Snow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Snow.sks; sourceTree = "<group>"; };
 		57369BEB1F420E1E00692C16 /* PenguimRush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenguimRush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57369BEE1F420E1E00692C16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57369BF21F420E1E00692C16 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				57369BEE1F420E1E00692C16 /* AppDelegate.swift */,
 				57369BF81F420E1E00692C16 /* GameViewController.swift */,
 				57369BF21F420E1E00692C16 /* Actions.sks */,
+				571B3E301F44D91600D3C2D5 /* Snow.sks */,
 				57369BFA1F420E1E00692C16 /* Main.storyboard */,
 				57369BF41F420E1E00692C16 /* Game.xcassets */,
 				57369BFD1F420E1E00692C16 /* Assets.xcassets */,
@@ -341,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57369BF31F420E1E00692C16 /* Actions.sks in Resources */,
+				571B3E311F44D91600D3C2D5 /* Snow.sks in Resources */,
 				5763C7E51F4232BA000C6DE8 /* Environments.json in Resources */,
 				57369BF51F420E1E00692C16 /* Game.xcassets in Resources */,
 				57369BFC1F420E1E00692C16 /* Main.storyboard in Resources */,
