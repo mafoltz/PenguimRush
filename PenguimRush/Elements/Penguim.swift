@@ -30,13 +30,23 @@ class Penguim: SKNode, Updatable, Scaleable {
         
         //Rocket
         
-        let penguin = SKSpriteNode(imageNamed: "Spaceship")
+        let penguin = SKSpriteNode(imageNamed: "PenguinWalk01")
         
         self.size = penguin.size
         
         self.addChild(penguin)
         
         self.zPosition = 100
+        let animation = SKAction.animate(with: [
+            SKTexture(imageNamed: "PenguinWalk01"),
+            SKTexture(imageNamed: "PenguinWalk02"),
+            SKTexture(imageNamed: "PenguinWalk03"),
+            SKTexture(imageNamed: "PenguinWalk04")
+            ], timePerFrame: 0.3)
+        
+        let forever = SKAction.repeatForever(animation)
+        
+        penguin.run(forever)
         
         self.physicsBody = SKPhysicsBody(texture: penguin.texture!, size: penguin.size)
         
@@ -45,8 +55,6 @@ class Penguim: SKNode, Updatable, Scaleable {
         self.physicsBody!.friction = 0
         self.physicsBody!.categoryBitMask = ColliderType.Penguin.rawValue
         self.physicsBody!.contactTestBitMask = ColliderType.Obstacle.rawValue
-        
-        self.updateScale(forDeviceHeightPercentage: 0.185546875)
         
         self.position.y = -(UIScreen.main.bounds.height/2) + (self.size.height/2) + UIScreen.main.bounds.width*0.0673828125
         
@@ -79,7 +87,7 @@ class Penguim: SKNode, Updatable, Scaleable {
     }
     
     public func moveLeft(){
-        self.physicsBody!.applyImpulse(CGVector(dx: -self.size.width*0.1, dy: 0))
+        self.physicsBody!.applyImpulse(CGVector(dx: -self.size.width*0.01, dy: 0))
         if self.action(forKey: "move") == nil {
             let rotateAction = SKAction.rotate(toAngle: 0.0872665, duration: actionTime)
             self.run(rotateAction, withKey: "move")
@@ -87,7 +95,7 @@ class Penguim: SKNode, Updatable, Scaleable {
     }
     
     public func moveRight(){
-        self.physicsBody!.applyImpulse(CGVector(dx: self.size.width*0.1, dy: 0))
+        self.physicsBody!.applyImpulse(CGVector(dx: self.size.width*0.01, dy: 0))
         if self.action(forKey: "move") == nil {
             let rotateAction = SKAction.rotate(toAngle: -0.0872665, duration: actionTime)
             self.run(rotateAction, withKey: "move")
