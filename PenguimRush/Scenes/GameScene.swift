@@ -61,6 +61,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
         self.path.removeFromParent()
         
         for player in self.players {
+            player.removeAllTrails()
             player.removeFromParent()
         }
         
