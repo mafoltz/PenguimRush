@@ -13,7 +13,7 @@ class Path: SKNode {
     private var availableEnvironments = [Environment]()
     private var environments = [Environment]()
     
-    private var lastObstacleYPosition = CGFloat(0)
+    private var lastObstacleYPosition: CGFloat!
     
     private var json: [[[String : Any]]]!
     
@@ -32,8 +32,13 @@ class Path: SKNode {
     }
     
     private func setPosition(forEnvironment environment: Environment){
+        
+        if self.lastObstacleYPosition == nil {
+            self.lastObstacleYPosition = -environment.size.height
+        }
+        
         environment.position.y = lastObstacleYPosition
-        lastObstacleYPosition += environment.size.height
+        self.lastObstacleYPosition! += environment.size.height
     }
     
     private func updateEnvironment() {
@@ -49,7 +54,7 @@ class Path: SKNode {
             newEnvironment = Environment(from: environmentData, index: index)
             self.setPosition(forEnvironment: newEnvironment!)
             self.addChild(newEnvironment!)
-            environments.append(newEnvironment!)
+            self.environments.append(newEnvironment!)
         }
         else{
             let obstacleIndex = availableEnvironments.index(of: newEnvironment!)!
@@ -60,12 +65,9 @@ class Path: SKNode {
     }
     
     func updatePosition(at currentPosition: CGPoint) {
-        
-        
-        
         if currentPosition.y - environments.first!.position.y > (environments.first!.size.height) {
             self.availableEnvironments.append(environments.removeFirst())
-            updateEnvironment()
+            self.updateEnvironment()
         }
     }
 }

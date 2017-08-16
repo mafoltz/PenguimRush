@@ -113,7 +113,7 @@ class Penguim: SKNode, Updatable, Scaleable {
     }
     
     public func moveLeft(){
-        self.physicsBody!.applyImpulse(CGVector(dx: -self.size.width*0.01, dy: 0))
+        self.physicsBody!.velocity.dx = -self.velocity
         if self.action(forKey: "move") == nil {
             let rotateAction = SKAction.rotate(toAngle: 0.0872665, duration: actionTime)
             self.run(rotateAction, withKey: "move")
@@ -121,7 +121,7 @@ class Penguim: SKNode, Updatable, Scaleable {
     }
     
     public func moveRight(){
-        self.physicsBody!.applyImpulse(CGVector(dx: self.size.width*0.01, dy: 0))
+        self.physicsBody!.velocity.dx = self.velocity
         if self.action(forKey: "move") == nil {
             let rotateAction = SKAction.rotate(toAngle: -0.0872665, duration: actionTime)
             self.run(rotateAction, withKey: "move")
