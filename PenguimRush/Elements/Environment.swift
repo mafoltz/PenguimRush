@@ -44,16 +44,18 @@ class Environment: SKNode, Scaleable {
     }
     
     func loadScenaryTrees() {
+        let marginDistance: CGFloat = 300.0
+        
         let leftScenaryTreesType = ObstacleType(rawValue: "PineGroupLeft")!
         let leftScenaryTrees = Obstacle(withType: leftScenaryTreesType)
-        leftScenaryTrees.position.x = (leftScenaryTrees.size.width - size.width) / 2
+        leftScenaryTrees.position.x = (leftScenaryTrees.size.width - size.width) / 2 + marginDistance
         leftScenaryTrees.zPosition = 0.1
         obstacles.append(leftScenaryTrees)
         addChild(leftScenaryTrees)
         
         let rightScenaryTreesType = ObstacleType(rawValue: "PineGroupRight")!
         let rightScenaryTrees = Obstacle(withType: rightScenaryTreesType)
-        rightScenaryTrees.position.x = (size.width - rightScenaryTrees.size.width) / 2
+        rightScenaryTrees.position.x = (size.width - rightScenaryTrees.size.width) / 2 - marginDistance
         rightScenaryTrees.zPosition = 0.1
         obstacles.append(rightScenaryTrees)
         addChild(rightScenaryTrees)
