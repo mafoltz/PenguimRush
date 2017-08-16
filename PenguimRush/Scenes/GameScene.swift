@@ -38,6 +38,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
     
     private var players = [Penguim]()
     
+    private var blizzardParticle: SKEmitterNode!
+    
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
@@ -63,6 +65,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
         self.cam = SKCameraNode()
         self.camera = self.cam
         
+        self.setBlizzard()
+    }
+    
+    func setBlizzard() {
+        blizzardParticle = SKEmitterNode(fileNamed: "Snow.sks")
+        blizzardParticle.particlePositionRange = CGVector(dx: size.width, dy: size.height)
+        blizzardParticle.particleSize = CGSize(width: 100, height: 100)
+        blizzardParticle.zPosition = 10.0
+        blizzardParticle.targetNode = self.scene
+        
+        addChild(blizzardParticle)
     }
     
     func resetScene() {
@@ -150,6 +163,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
         else{
             self.cam.position.y = players.first!.position.y + (self.size.height*0.25)
             self.hud.position.y = self.cam.position.y
+            self.blizzardParticle.position.y = self.cam.position.y
             self.path.updatePosition(at: self.cam.position)
         }
         
