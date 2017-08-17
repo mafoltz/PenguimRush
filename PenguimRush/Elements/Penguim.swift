@@ -18,14 +18,18 @@ class Penguim: SKNode, Updatable, Scaleable {
         case Crashed
     }
     
+    public enum Direction {
+        case left
+        case right
+    }
+    
     var size: CGSize = CGSize(width: 0, height: 0)
     private let actionTime = TimeInterval(0.15)
     public var state = State.Stopped
     private var velocity: CGFloat!
     private var impulseVelocity: CGFloat!
     private var sprite: SKSpriteNode!
-    private var trailParticle: SKEmitterNode!
-    private var previousTrailParticles = [SKEmitterNode]()
+    private var footprintsParticles = [SKEmitterNode]()
     
     override init() {
         super.init()
@@ -51,8 +55,6 @@ class Penguim: SKNode, Updatable, Scaleable {
         self.velocity = 1.25 * self.size.height
         self.impulseVelocity = 3 * self.size.height
         
-        self.makeTrail()
-        
         self.updateScheduler()
     }
     
@@ -60,57 +62,58 @@ class Penguim: SKNode, Updatable, Scaleable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func makeTrail() {
-        trailParticle = SKEmitterNode(fileNamed: "Snow.sks")
-        trailParticle.particlePosition = CGPoint(x: self.position.x,
-                                                 y: self.position.y + self.size.height / 2)
-        trailParticle.particlePositionRange = CGVector(dx: size.width / 2, dy: -size.height / 2)
-        trailParticle.particleSize = CGSize(width: 500, height: 500)
-        trailParticle.particleZPosition = 9.0
+    private func makeFootprint(direction: Direction) {
+        let footprintParticle = SKEmitterNode(fileNamed: "Trail.sks")!
+        footprintParticle.particleZPosition = 0.1
+        
+        let footsDistance: CGFloat = 15
+        if direction == .left {
+            footprintParticle.particlePosition = CGPoint(x: self.position.x - footsDistance,
+                                                         y: self.position.y - self.size.height / 3)
+        }
+        else {
+            footprintParticle.particlePosition = CGPoint(x: self.position.x + footsDistance,
+                                                         y: self.position.y - self.size.height / 3)
+        }
         
         if let scene = self.scene as? GameScene {
-            trailParticle.targetNode = scene
-            scene.addChild(trailParticle)
+            footprintParticle.targetNode = scene
+            scene.addChild(footprintParticle)
         }
+        
+        footprintsParticles.append(footprintParticle)
     }
     
-    private func stopTrail() {
-        trailParticle.isPaused = true
-        
-        for trail in previousTrailParticles {
+    private func removeUnusedFootprints() {
+        for footprintParticle in footprintsParticles {
             if let scene = self.scene as? GameScene {
-                if trail.position.y < (scene.camera?.position.y)! {
-                    trail.isHidden = true
-                    trail.removeFromParent()
+                if footprintParticle.position.y < (scene.camera?.position.y)! {
+                    footprintParticle.removeAllActions()
+                    footprintParticle.removeFromParent()
                 }
             }
         }
-        
-        previousTrailParticles.append(self.trailParticle)
-    }
-    
-    public func removeAllTrails() {
-        self.removeAllChildren()
-        self.removeAllActions()
     }
     
     private func walk() {
-        let beginToWalk = SKAction.animate(with: [
-            SKTexture(imageNamed: "PenguinWalk01"),
-            SKTexture(imageNamed: "PenguinWalk02")
-            ], timePerFrame: 0.3)
-        let stopTrail = SKAction.run {
-            self.stopTrail()
+        let makeLeftFootprint = SKAction.run {
+            self.makeFootprint(direction: .left)
         }
-        let walk = SKAction.group([beginToWalk, stopTrail])
+        let makeRightFootprint = SKAction.run {
+            self.makeFootprint(direction: .right)
+        }
+        
+        let firstStep = SKAction.group([SKAction.animate(with: [SKTexture(imageNamed: "PenguinWalk01")], timePerFrame: 0.3), makeRightFootprint])
+        let secondStep = SKAction.group([SKAction.animate(with: [SKTexture(imageNamed: "PenguinWalk02")], timePerFrame: 0.3), makeLeftFootprint])
+        let walk = SKAction.sequence([firstStep, secondStep])
         
         let beginToImpulse = SKAction.animate(with: [SKTexture(imageNamed: "PenguinWalk03")], timePerFrame: 1.2)
-        let stopImpulse = SKAction.animate(with: [SKTexture(imageNamed: "PenguinWalk04")], timePerFrame: 0.3)
+        let stopImpulse = SKAction.group([SKAction.animate(with: [SKTexture(imageNamed: "PenguinWalk04")], timePerFrame: 0.3), makeLeftFootprint])
         let impulseSequence = SKAction.sequence([beginToImpulse, stopImpulse])
         
         let impulse = SKAction.run {
             self.physicsBody!.applyImpulse(CGVector(dx: 0, dy: self.impulseVelocity))
-            self.makeTrail()
+            self.removeUnusedFootprints()
         }
         let takeImpulse = SKAction.group([impulseSequence, impulse])
         
@@ -147,7 +150,6 @@ class Penguim: SKNode, Updatable, Scaleable {
         if self.action(forKey: "move") == nil {
             let rotateAction = SKAction.rotate(toAngle: 0.0872665, duration: actionTime)
             self.run(rotateAction, withKey: "move")
-            self.trailParticle.emissionAngle = 2.3
         }
     }
     
@@ -156,7 +158,6 @@ class Penguim: SKNode, Updatable, Scaleable {
         if self.action(forKey: "move") == nil {
             let rotateAction = SKAction.rotate(toAngle: -0.0872665, duration: actionTime)
             self.run(rotateAction, withKey: "move")
-            self.trailParticle.emissionAngle = 0.7
         }
     }
     
@@ -165,7 +166,6 @@ class Penguim: SKNode, Updatable, Scaleable {
         if self.action(forKey: "move") == nil && self.zPosition != 0 {
             let rotateAction = SKAction.rotate(toAngle: 0, duration: actionTime)
             self.run(rotateAction, withKey: "move")
-            self.trailParticle.emissionAngle = 1.5
         }
     }
 }

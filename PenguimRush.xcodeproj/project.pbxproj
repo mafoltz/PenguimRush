@@ -26,9 +26,9 @@
 		5763C7E31F4231E9000C6DE8 /* ObstacleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5763C7E21F4231E9000C6DE8 /* ObstacleType.swift */; };
 		5763C7E51F4232BA000C6DE8 /* Environments.json in Resources */ = {isa = PBXBuildFile; fileRef = 5763C7E41F4232BA000C6DE8 /* Environments.json */; };
 		579431721F435D8B0049C392 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579431711F435D8B0049C392 /* Path.swift */; };
-		57D3EC011F46095C00770AD5 /* Snow.sks in Resources */ = {isa = PBXBuildFile; fileRef = 57D3EC001F46095C00770AD5 /* Snow.sks */; };
 		57D3EC081F460AC500770AD5 /* Trail.sks in Resources */ = {isa = PBXBuildFile; fileRef = 57D3EC061F460AC500770AD5 /* Trail.sks */; };
-		57D3EC091F460AC500770AD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57D3EC071F460AC500770AD5 /* Assets.xcassets */; };
+		57D3EC0C1F4612EF00770AD5 /* Snow.sks in Resources */ = {isa = PBXBuildFile; fileRef = 57D3EC0A1F4612EF00770AD5 /* Snow.sks */; };
+		57D3EC0D1F4612EF00770AD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57D3EC0B1F4612EF00770AD5 /* Assets.xcassets */; };
 		57E1909D1F42302700873D96 /* JsonReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1909C1F42302700873D96 /* JsonReader.swift */; };
 		91221B3C1F4221FC0055A114 /* ColliderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91221B3B1F4221FC0055A114 /* ColliderType.swift */; };
 		91CB7E401F42421000448D01 /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB7E3F1F42421000448D01 /* Hud.swift */; };
@@ -80,9 +80,9 @@
 		5763C7E21F4231E9000C6DE8 /* ObstacleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObstacleType.swift; path = Models/ObstacleType.swift; sourceTree = "<group>"; };
 		5763C7E41F4232BA000C6DE8 /* Environments.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Environments.json; path = Util/Environments.json; sourceTree = "<group>"; };
 		579431711F435D8B0049C392 /* Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Path.swift; path = Elements/Path.swift; sourceTree = "<group>"; };
-		57D3EC001F46095C00770AD5 /* Snow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Snow.sks; sourceTree = "<group>"; };
 		57D3EC061F460AC500770AD5 /* Trail.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Trail.sks; sourceTree = "<group>"; };
-		57D3EC071F460AC500770AD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		57D3EC0A1F4612EF00770AD5 /* Snow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Snow.sks; sourceTree = "<group>"; };
+		57D3EC0B1F4612EF00770AD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57E1909C1F42302700873D96 /* JsonReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JsonReader.swift; path = Util/JsonReader.swift; sourceTree = "<group>"; };
 		91221B3B1F4221FC0055A114 /* ColliderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColliderType.swift; path = Models/ColliderType.swift; sourceTree = "<group>"; };
 		91CB7E3F1F42421000448D01 /* Hud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Hud.swift; path = Elements/Hud.swift; sourceTree = "<group>"; };
@@ -148,10 +148,10 @@
 				57369BEE1F420E1E00692C16 /* AppDelegate.swift */,
 				57369BF81F420E1E00692C16 /* GameViewController.swift */,
 				57369BF21F420E1E00692C16 /* Actions.sks */,
-				57D3EC001F46095C00770AD5 /* Snow.sks */,
+				57D3EC0A1F4612EF00770AD5 /* Snow.sks */,
 				57D3EC061F460AC500770AD5 /* Trail.sks */,
 				57369BFA1F420E1E00692C16 /* Main.storyboard */,
-				57D3EC071F460AC500770AD5 /* Assets.xcassets */,
+				57D3EC0B1F4612EF00770AD5 /* Assets.xcassets */,
 				57369BF41F420E1E00692C16 /* Game.xcassets */,
 				57369BFF1F420E1E00692C16 /* Info.plist */,
 			);
@@ -346,13 +346,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57D3EC0C1F4612EF00770AD5 /* Snow.sks in Resources */,
 				57D3EC081F460AC500770AD5 /* Trail.sks in Resources */,
 				57369BF31F420E1E00692C16 /* Actions.sks in Resources */,
 				5763C7E51F4232BA000C6DE8 /* Environments.json in Resources */,
+				57D3EC0D1F4612EF00770AD5 /* Assets.xcassets in Resources */,
 				57369BF51F420E1E00692C16 /* Game.xcassets in Resources */,
-				57D3EC091F460AC500770AD5 /* Assets.xcassets in Resources */,
 				57369BFC1F420E1E00692C16 /* Main.storyboard in Resources */,
-				57D3EC011F46095C00770AD5 /* Snow.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
