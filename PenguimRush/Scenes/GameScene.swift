@@ -17,6 +17,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
     private var controllers = [Controller]()
     private var players = [Penguin]()
     private var blizzardParticle: SKEmitterNode!
+    private var title: SKSpriteNode!
+    private var handController: SKSpriteNode!
     
     enum State {
         case Start
@@ -32,6 +34,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
         self.backgroundColor = UIColor(red: 224/255, green: 236/255, blue: 239/255, alpha: 1.0)
+        
+        self.title = SKSpriteNode(imageNamed: "Title")
+        self.title.zPosition = 1000
+        self.title.position.y = (self.size.height*0.25)
+        self.addChild(title)
+        
+        self.handController = SKSpriteNode(imageNamed: "CenterController")
+        self.handController.xScale = 0.8
+        self.handController.yScale = 0.8
+        self.handController.zPosition = 1000
+        
+        let moveHandControler = SKAction.animate(with: [
+            SKTexture(imageNamed: "RightController"),
+            SKTexture(imageNamed: "CenterController"),
+            SKTexture(imageNamed: "LeftController"),
+            SKTexture(imageNamed: "CenterController")
+            ], timePerFrame: 0.5)
+        let forever = SKAction.repeatForever(moveHandControler)
+        handController.run(forever)
+        self.handController.position.y = -(self.size.height*0.125)
+        self.addChild(handController)
         
         self.setUpControllerObservers()
         
@@ -145,6 +168,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
     
     func start(){
         self.state = .Playing
+        self.title.removeFromParent()
+        self.handController.removeAllActions()
+        self.handController.removeFromParent()
+        
         for player in self.players {
             player.state = .Slide
         }

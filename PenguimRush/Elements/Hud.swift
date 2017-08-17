@@ -30,6 +30,7 @@ class Hud: SKNode, Updatable {
         self.score.text = "0 m"
         self.score.fontColor = UIColor(red: 255.0/255.0, green: 194.0/255.0, blue: 26.0/255.0, alpha: 1)
         self.score.position.y = (self.size.height*0.5) - (self.score.frame.size.height) - self.marginScore
+        self.score.isHidden = true
         self.updateScore()
         
         self.addChild(self.score)
@@ -105,37 +106,20 @@ class Hud: SKNode, Updatable {
         else {
             
             let highScoreValueLabel = SKLabelNode(fontNamed: "Minecraft")
-            highScoreValueLabel.fontSize = (size.height*50)/1080
-            highScoreValueLabel.text = String(format: "%.1f m", userinfo.distance)
+            highScoreValueLabel.fontSize = (size.height*100)/1080
+            highScoreValueLabel.text = String(format: "%.1f m", self.distance)
             highScoreValueLabel.fontColor = UIColor.black
-            highScoreValueLabel.position.y = (highScoreValueLabel.frame.size.height*0.5)
+            highScoreValueLabel.position.y = -(highScoreValueLabel.frame.size.height)
             highScoreValueLabel.zPosition = 100
             scoreboard.addChild(highScoreValueLabel)
             
             let highScoreLabel = SKLabelNode(fontNamed: "Minecraft")
-            highScoreLabel.fontSize = (size.height*50)/1080
-            highScoreLabel.text = "HIGH SCORE"
+            highScoreLabel.fontSize = (size.height*65)/1080
+            highScoreLabel.text = "NEW HIGH SCORE"
             highScoreLabel.fontColor = UIColor.black
             highScoreLabel.position.y = highScoreValueLabel.position.y + (highScoreValueLabel.frame.size.height) + (highScoreValueLabel.frame.size.height*0.5)
             highScoreLabel.zPosition = 100
             scoreboard.addChild(highScoreLabel)
-            
-            
-            let scoreLabel = SKLabelNode(fontNamed: "Minecraft")
-            scoreLabel.fontSize = (size.height*50)/1080
-            scoreLabel.text = "SCORE"
-            scoreLabel.fontColor = UIColor.black
-            scoreLabel.position.y = highScoreValueLabel.position.y - (highScoreValueLabel.frame.size.height) - (highScoreValueLabel.frame.size.height*0.5)
-            scoreLabel.zPosition = 100
-            scoreboard.addChild(scoreLabel)
-            
-            let scoreValueLabel = SKLabelNode(fontNamed: "Minecraft")
-            scoreValueLabel.fontSize = (size.height*50)/1080
-            scoreValueLabel.text = String(format: "%.1f m", self.distance)
-            scoreValueLabel.fontColor = UIColor.black
-            scoreValueLabel.position.y = scoreLabel.position.y - (scoreLabel.frame.size.height) - (scoreLabel.frame.size.height*0.5)
-            scoreValueLabel.zPosition = 100
-            scoreboard.addChild(scoreValueLabel)
         }
         
         
@@ -150,14 +134,10 @@ class Hud: SKNode, Updatable {
                 let difference = abs(cam.position.y - self.lastYPosition)
                 
                 if difference > (self.size.height*0.01) {
+                    self.score.isHidden = false
                     self.distance += 0.1
                     self.lastYPosition = cam.position.y
-                    if self.distance - Double(Int(self.distance)) > 0 {
-                        self.score.text = String(format: "%.1f m", self.distance)
-                    }
-                    else{
-                        self.score.text = String(format: "%.0f m", self.distance)
-                    }
+                    self.score.text = String(format: "%.1f m", self.distance)
                 }
                 
             }
