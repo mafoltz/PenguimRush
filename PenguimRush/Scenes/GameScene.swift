@@ -21,12 +21,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
     private var handController: SKSpriteNode!
     
     enum State {
-        case Start
+        case TapToPlay
         case Playing
         case GameOver
     }
     
-    private var state = State.Start
+    private var state = State.TapToPlay
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
@@ -122,10 +122,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
         print("controllerDisconnected")
         self.isPaused = true
     }
-
+    
     func connectControllers(){
         self.isPaused = false
-
+        
         print("Controllers = \(GCController.controllers().count)")
         
         for controller in GCController.controllers() {
@@ -139,19 +139,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
             }
         }
     }
-
+    
     func setUpMicroController(_ controller: GCController){
         self.controllers.append(Controller(with: controller))
     }
     
     func move(with xGravity: Double, and playerIndex: Int) {
         
-        if self.state == .Start {
-            if abs(xGravity) > 0.5 {
-                self.start()
-            }
-        }
-        else {
+        if self.state == .Playing {
             if abs(xGravity) > 0.15 {
                 if xGravity > 0 {
                     self.players[playerIndex].moveRight()
@@ -200,7 +195,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if self.state == .GameOver {
+        if self.state == .TapToPlay {
+            self.start()
+        }
+        else if self.state == .GameOver {
             self.resetScene()
         }
     }
