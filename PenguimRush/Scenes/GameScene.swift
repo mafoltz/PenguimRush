@@ -56,19 +56,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
     }
     
     func resetScene() {
-        self.hud.removeFromParent()
-        
-        self.path.removeFromParent()
-        
-        for player in self.players {
-            player.removeAllTrails()
-            player.removeFromParent()
+        for child in self.children {
+            for childOfChild in child.children{
+                childOfChild.removeAllActions()
+                childOfChild.removeAllChildren()
+            }
+            child.removeAllActions()
+            child.removeAllChildren()
         }
+        
+        self.removeAllActions()
+        self.removeAllChildren()
         
         self.players = [Penguim]()
         self.controllers = [Controller]()
+        self.blizzardParticle = SKEmitterNode()
         
-        self.startScene()
+        let scene = GameScene(size: self.size)
+        view?.presentScene(scene, transition: SKTransition.crossFade(withDuration: 1))
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -77,9 +82,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
         for player in self.players {
             player.state = .Crashed
         }
-        
-        contact.bodyA.pinned = true
-        contact.bodyB.pinned = true
         
         let wait = SKAction.wait(forDuration: 2)
         let action = SKAction.run {

@@ -30,7 +30,7 @@ class Penguim: SKNode, Updatable, Scaleable {
     override init() {
         super.init()
         
-        sprite = SKSpriteNode(imageNamed: "PenguinWalk01")
+        sprite = SKSpriteNode(imageNamed: "PenguinWalk03")
         
         self.size = sprite.size
         
@@ -90,13 +90,8 @@ class Penguim: SKNode, Updatable, Scaleable {
     }
     
     public func removeAllTrails() {
-        trailParticle.isHidden = true
-        trailParticle.removeFromParent()
-        
-        for trail in previousTrailParticles {
-            trail.isHidden = true
-            trail.removeFromParent()
-        }
+        self.removeAllChildren()
+        self.removeAllActions()
     }
     
     private func walk() {
@@ -142,6 +137,7 @@ class Penguim: SKNode, Updatable, Scaleable {
             }
         }
         else if self.state == .Crashed {
+            self.physicsBody!.pinned = true
             self.sprite.removeAction(forKey: "animation")
         }
     }
