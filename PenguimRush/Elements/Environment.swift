@@ -66,11 +66,15 @@ class Environment: SKNode, Scaleable {
             let x = item["x"] as! CGFloat
             let y = item["y"] as! CGFloat
             let z = item["z"] as! CGFloat
+            let flip = item["flip"] as! Bool
             
             let obstacle = Obstacle(withType: type!)
             obstacle.position.x = x
             obstacle.position.y = y
             obstacle.zPosition = z
+            if flip {
+                obstacle.xScale = -obstacle.xScale
+            }
             
             obstacles.append(obstacle)
             addChild(obstacle)
