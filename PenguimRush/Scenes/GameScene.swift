@@ -23,7 +23,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
         
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
-        self.backgroundColor = UIColor(colorLiteralRed: 224/255, green: 236/255, blue: 239/255, alpha: 1.0)
+        self.backgroundColor = UIColor(red: 224/255, green: 236/255, blue: 239/255, alpha: 1.0)
         
         self.setUpControllerObservers()
         
