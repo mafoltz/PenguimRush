@@ -6,8 +6,9 @@
 //  Copyright © 2017 Marcelo Andrighetto Foltz. All rights reserved.
 //
 
+import SpriteKit
+
 protocol ControllerDelegate {
-    func moveLeft(with playerIndex: Int) -> Void
-    func moveRight(with playerIndex: Int) -> Void
-    func moveCenter(with playerIndex: Int) -> Void
+    
+    func move(with xGravity: Double, and playerIndex: Int)
 }

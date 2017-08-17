@@ -27,16 +27,6 @@ class Controller: SKNode, Updatable {
     }
     
     func update() {
-        if abs(self.contoller.motion!.gravity.x) > 0.15 {
-            if self.contoller.motion!.gravity.x > 0 {
-                self.delegate.moveRight(with: self.playerIndex)
-            }
-            else {
-                self.delegate.moveLeft(with: self.playerIndex)
-            }
-        }
-        else {
-            self.delegate.moveCenter(with: self.playerIndex)
-        }
+        self.delegate.move(with: self.contoller.motion!.gravity.x, and: self.playerIndex)
     }
 }

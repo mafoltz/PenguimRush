@@ -18,12 +18,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
     private var players = [Penguim]()
     private var blizzardParticle: SKEmitterNode!
     
+    private var started = false
+    
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
-        self.backgroundColor = UIColor(colorLiteralRed: 224/255, green: 236/255, blue: 239/255, alpha: 1.0)
+        self.backgroundColor = UIColor(red: 224/255, green: 236/255, blue: 239/255, alpha: 1.0)
         
         self.setUpControllerObservers()
         
@@ -117,21 +119,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
         self.controllers.append(Controller(with: controller))
     }
     
-    func moveLeft(with playerIndex: Int) {
-        if !self.players.isEmpty {
-            self.players[playerIndex].moveLeft()
+    func move(with xGravity: Double, and playerIndex: Int) {
+        
+        if !started {
+            if abs(xGravity) > 0.5 {
+                self.start()
+            }
+        }
+        else {
+            if abs(xGravity) > 0.15 {
+                if xGravity > 0 {
+                    self.players[playerIndex].moveRight()
+                }
+                else {
+                    self.players[playerIndex].moveLeft()
+                }
+            }
+            else {
+                self.players[playerIndex].moveCenter()
+            }
         }
     }
     
-    func moveRight(with playerIndex: Int) {
-        if !self.players.isEmpty {
-            self.players[playerIndex].moveRight()
-        }
-    }
-    
-    func moveCenter(with playerIndex: Int) {
-        if !self.players.isEmpty {
-            self.players[playerIndex].moveCenter()
+    func start(){
+        self.started = true
+        for player in self.players {
+            player.state = .Slide
         }
     }
     
@@ -144,12 +157,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
                 self.controllers.append(controller)
                 
                 let penguim = Penguim()
-                penguim.state = .Slide
                 self.addChild(penguim)
                 self.players.append(penguim)
             }
         }
-        else{
+        else if started{
             let moveCam = SKAction.move(to: CGPoint(x: 0, y: players.first!.position.y + (self.size.height*0.25) ), duration: 0.3)
             self.camera!.run(moveCam)
             self.hud.position.y = self.cam.position.y
