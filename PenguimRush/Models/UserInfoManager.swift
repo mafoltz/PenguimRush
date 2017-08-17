@@ -20,7 +20,11 @@ struct UserInfo {
 class UserInfoManager {
     
     static func updateUserInfo(with distance: Double) {
-        updateUserDefaults(with: distance)
+        
+        let userInfo = getUserInfo()
+        if userInfo.distance < distance {
+            updateUserDefaults(with: distance)
+        }
     }
     
     static func resetUserInfo(){
