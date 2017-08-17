@@ -18,7 +18,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
     private var players = [Penguin]()
     private var blizzardParticle: SKEmitterNode!
     
-    private var started = false
+    enum State {
+        case Start
+        case Playing
+        case GameOver
+    }
+    
+    private var state = State.Start
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
@@ -85,12 +91,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
             player.state = .Crashed
         }
         
-        let wait = SKAction.wait(forDuration: 2)
-        let action = SKAction.run {
-            self.resetScene()
-        }
-        
-        self.run(SKAction.sequence([wait, action]))
+        self.hud.setAsGameOver()
+        self.state = .GameOver
     }
     
     func controllerDisconnected(){
@@ -121,7 +123,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
     
     func move(with xGravity: Double, and playerIndex: Int) {
         
-        if !started {
+        if self.state == .Start {
             if abs(xGravity) > 0.5 {
                 self.start()
             }
@@ -142,7 +144,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
     }
     
     func start(){
-        self.started = true
+        self.state = .Playing
         for player in self.players {
             player.state = .Slide
         }
@@ -161,12 +163,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
                 self.players.append(penguim)
             }
         }
-        else if started{
+        else if self.state == .Playing{
             let moveCam = SKAction.move(to: CGPoint(x: 0, y: players.first!.position.y + (self.size.height*0.25) ), duration: 0.3)
             self.camera!.run(moveCam)
-            self.hud.position.y = self.cam.position.y
             self.blizzardParticle.position.y = self.cam.position.y + UIScreen.main.bounds.size.height / 2
             self.path.updatePosition(at: self.cam.position)
+        }
+        self.hud.position.y = self.cam.position.y
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if self.state == .GameOver {
+            self.resetScene()
         }
     }
 }
