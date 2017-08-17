@@ -18,6 +18,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
     private var players = [Penguim]()
     private var blizzardParticle: SKEmitterNode!
     
+    private var started = false
+    
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
@@ -119,19 +121,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
     
     func moveLeft(with playerIndex: Int) {
         if !self.players.isEmpty {
-            self.players[playerIndex].moveLeft()
+            if !self.started {
+                self.start()
+            }
+            else{
+                self.players[playerIndex].moveLeft()
+            }
         }
     }
     
     func moveRight(with playerIndex: Int) {
         if !self.players.isEmpty {
-            self.players[playerIndex].moveRight()
+            if !self.started {
+                self.start()
+            }
+            else{
+                self.players[playerIndex].moveRight()
+            }
         }
     }
     
     func moveCenter(with playerIndex: Int) {
-        if !self.players.isEmpty {
+        if !self.players.isEmpty && self.started {
             self.players[playerIndex].moveCenter()
+        }
+    }
+    
+    func start(){
+        self.started = true
+        for player in self.players {
+            player.state = .Slide
         }
     }
     
@@ -144,12 +163,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
                 self.controllers.append(controller)
                 
                 let penguim = Penguim()
-                penguim.state = .Slide
                 self.addChild(penguim)
                 self.players.append(penguim)
             }
         }
-        else{
+        else if started{
             let moveCam = SKAction.move(to: CGPoint(x: 0, y: players.first!.position.y + (self.size.height*0.25) ), duration: 0.3)
             self.camera!.run(moveCam)
             self.hud.position.y = self.cam.position.y
