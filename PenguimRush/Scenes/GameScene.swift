@@ -15,7 +15,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
     private var path: Path!
     private var hud: Hud!
     private var controllers = [Controller]()
-    private var players = [Penguim]()
+    private var players = [Penguin]()
     private var blizzardParticle: SKEmitterNode!
     
     private var started = false
@@ -70,7 +70,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
         self.removeAllActions()
         self.removeAllChildren()
         
-        self.players = [Penguim]()
+        self.players = [Penguin]()
         self.controllers = [Controller]()
         self.blizzardParticle = SKEmitterNode()
         
@@ -156,7 +156,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
                 self.addChild(controller)
                 self.controllers.append(controller)
                 
-                let penguim = Penguim()
+                let penguim = Penguin()
                 self.addChild(penguim)
                 self.players.append(penguim)
             }

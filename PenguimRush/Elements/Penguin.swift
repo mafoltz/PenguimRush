@@ -1,6 +1,6 @@
 //
-//  Penguim.swift
-//  PenguimRush
+//  Penguin.swift
+//  PenguinRush
 //
 //  Created by Marcelo Andrighetto Foltz on 14/08/17.
 //  Copyright © 2017 Marcelo Andrighetto Foltz. All rights reserved.
@@ -9,7 +9,7 @@
 import SpriteKit
 import GameController
 
-class Penguim: SKNode, Updatable, Scaleable {
+class Penguin: SKNode, Updatable, Scaleable {
     
     public enum State {
         case Stopped

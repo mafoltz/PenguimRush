@@ -15,7 +15,7 @@
 		57369C091F420E1E00692C16 /* PenguimRushTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C081F420E1E00692C16 /* PenguimRushTests.swift */; };
 		57369C141F420E1E00692C16 /* PenguimRushUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C131F420E1E00692C16 /* PenguimRushUITests.swift */; };
 		57369C251F420ED500692C16 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C241F420ED500692C16 /* GameScene.swift */; };
-		57369C271F420F3500692C16 /* Penguim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C261F420F3500692C16 /* Penguim.swift */; };
+		57369C271F420F3500692C16 /* Penguin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C261F420F3500692C16 /* Penguin.swift */; };
 		57369C291F420F6B00692C16 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C281F420F6B00692C16 /* Environment.swift */; };
 		57369C2B1F420F8000692C16 /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C2A1F420F8000692C16 /* Obstacle.swift */; };
 		57369C2E1F4210B400692C16 /* Scaleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57369C2C1F4210B400692C16 /* Scaleable.swift */; };
@@ -56,21 +56,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		57369BEB1F420E1E00692C16 /* PenguimRush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenguimRush.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		57369BEB1F420E1E00692C16 /* PenguinRush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenguinRush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57369BEE1F420E1E00692C16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57369BF21F420E1E00692C16 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		57369BF41F420E1E00692C16 /* Game.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Game.xcassets; sourceTree = "<group>"; };
 		57369BF81F420E1E00692C16 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		57369BFB1F420E1E00692C16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		57369BFF1F420E1E00692C16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		57369C041F420E1E00692C16 /* PenguimRushTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PenguimRushTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		57369C041F420E1E00692C16 /* PenguinRushTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PenguinRushTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57369C081F420E1E00692C16 /* PenguimRushTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenguimRushTests.swift; sourceTree = "<group>"; };
 		57369C0A1F420E1E00692C16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		57369C0F1F420E1E00692C16 /* PenguimRushUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PenguimRushUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		57369C0F1F420E1E00692C16 /* PenguinRushUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PenguinRushUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57369C131F420E1E00692C16 /* PenguimRushUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenguimRushUITests.swift; sourceTree = "<group>"; };
 		57369C151F420E1E00692C16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57369C241F420ED500692C16 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameScene.swift; path = Scenes/GameScene.swift; sourceTree = "<group>"; };
-		57369C261F420F3500692C16 /* Penguim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Penguim.swift; path = Elements/Penguim.swift; sourceTree = "<group>"; };
+		57369C261F420F3500692C16 /* Penguin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Penguin.swift; path = Elements/Penguin.swift; sourceTree = "<group>"; };
 		57369C281F420F6B00692C16 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Environment.swift; path = Elements/Environment.swift; sourceTree = "<group>"; };
 		57369C2A1F420F8000692C16 /* Obstacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Obstacle.swift; path = Elements/Obstacle.swift; sourceTree = "<group>"; };
 		57369C2C1F4210B400692C16 /* Scaleable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Scaleable.swift; path = Protocols/Scaleable.swift; sourceTree = "<group>"; };
@@ -131,9 +131,9 @@
 		57369BEC1F420E1E00692C16 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				57369BEB1F420E1E00692C16 /* PenguimRush.app */,
-				57369C041F420E1E00692C16 /* PenguimRushTests.xctest */,
-				57369C0F1F420E1E00692C16 /* PenguimRushUITests.xctest */,
+				57369BEB1F420E1E00692C16 /* PenguinRush.app */,
+				57369C041F420E1E00692C16 /* PenguinRushTests.xctest */,
+				57369C0F1F420E1E00692C16 /* PenguinRushUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,7 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				91CB7E3F1F42421000448D01 /* Hud.swift */,
-				57369C261F420F3500692C16 /* Penguim.swift */,
+				57369C261F420F3500692C16 /* Penguin.swift */,
 				579431711F435D8B0049C392 /* Path.swift */,
 				57369C281F420F6B00692C16 /* Environment.swift */,
 				57369C2A1F420F8000692C16 /* Obstacle.swift */,
@@ -242,9 +242,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		57369BEA1F420E1E00692C16 /* PenguimRush */ = {
+		57369BEA1F420E1E00692C16 /* PenguinRush */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 57369C181F420E1E00692C16 /* Build configuration list for PBXNativeTarget "PenguimRush" */;
+			buildConfigurationList = 57369C181F420E1E00692C16 /* Build configuration list for PBXNativeTarget "PenguinRush" */;
 			buildPhases = (
 				57369BE71F420E1E00692C16 /* Sources */,
 				57369BE81F420E1E00692C16 /* Frameworks */,
@@ -254,14 +254,14 @@
 			);
 			dependencies = (
 			);
-			name = PenguimRush;
+			name = PenguinRush;
 			productName = PenguimRush;
-			productReference = 57369BEB1F420E1E00692C16 /* PenguimRush.app */;
+			productReference = 57369BEB1F420E1E00692C16 /* PenguinRush.app */;
 			productType = "com.apple.product-type.application";
 		};
-		57369C031F420E1E00692C16 /* PenguimRushTests */ = {
+		57369C031F420E1E00692C16 /* PenguinRushTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 57369C1B1F420E1E00692C16 /* Build configuration list for PBXNativeTarget "PenguimRushTests" */;
+			buildConfigurationList = 57369C1B1F420E1E00692C16 /* Build configuration list for PBXNativeTarget "PenguinRushTests" */;
 			buildPhases = (
 				57369C001F420E1E00692C16 /* Sources */,
 				57369C011F420E1E00692C16 /* Frameworks */,
@@ -272,14 +272,14 @@
 			dependencies = (
 				57369C061F420E1E00692C16 /* PBXTargetDependency */,
 			);
-			name = PenguimRushTests;
+			name = PenguinRushTests;
 			productName = PenguimRushTests;
-			productReference = 57369C041F420E1E00692C16 /* PenguimRushTests.xctest */;
+			productReference = 57369C041F420E1E00692C16 /* PenguinRushTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		57369C0E1F420E1E00692C16 /* PenguimRushUITests */ = {
+		57369C0E1F420E1E00692C16 /* PenguinRushUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 57369C1E1F420E1E00692C16 /* Build configuration list for PBXNativeTarget "PenguimRushUITests" */;
+			buildConfigurationList = 57369C1E1F420E1E00692C16 /* Build configuration list for PBXNativeTarget "PenguinRushUITests" */;
 			buildPhases = (
 				57369C0B1F420E1E00692C16 /* Sources */,
 				57369C0C1F420E1E00692C16 /* Frameworks */,
@@ -290,9 +290,9 @@
 			dependencies = (
 				57369C111F420E1E00692C16 /* PBXTargetDependency */,
 			);
-			name = PenguimRushUITests;
+			name = PenguinRushUITests;
 			productName = PenguimRushUITests;
-			productReference = 57369C0F1F420E1E00692C16 /* PenguimRushUITests.xctest */;
+			productReference = 57369C0F1F420E1E00692C16 /* PenguinRushUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -337,9 +337,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				57369BEA1F420E1E00692C16 /* PenguimRush */,
-				57369C031F420E1E00692C16 /* PenguimRushTests */,
-				57369C0E1F420E1E00692C16 /* PenguimRushUITests */,
+				57369BEA1F420E1E00692C16 /* PenguinRush */,
+				57369C031F420E1E00692C16 /* PenguinRushTests */,
+				57369C0E1F420E1E00692C16 /* PenguinRushUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -386,7 +386,7 @@
 				579431721F435D8B0049C392 /* Path.swift in Sources */,
 				91221B3C1F4221FC0055A114 /* ColliderType.swift in Sources */,
 				57369C341F42111A00692C16 /* CGFloatExtension.swift in Sources */,
-				57369C271F420F3500692C16 /* Penguim.swift in Sources */,
+				57369C271F420F3500692C16 /* Penguin.swift in Sources */,
 				91DF49ED1F43A97400A14A25 /* Controller.swift in Sources */,
 				91CB7E401F42421000448D01 /* Hud.swift in Sources */,
 				57369C2E1F4210B400692C16 /* Scaleable.swift in Sources */,
@@ -424,12 +424,12 @@
 /* Begin PBXTargetDependency section */
 		57369C061F420E1E00692C16 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 57369BEA1F420E1E00692C16 /* PenguimRush */;
+			target = 57369BEA1F420E1E00692C16 /* PenguinRush */;
 			targetProxy = 57369C051F420E1E00692C16 /* PBXContainerItemProxy */;
 		};
 		57369C111F420E1E00692C16 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 57369BEA1F420E1E00692C16 /* PenguimRush */;
+			target = 57369BEA1F420E1E00692C16 /* PenguinRush */;
 			targetProxy = 57369C101F420E1E00692C16 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -547,7 +547,7 @@
 				DEVELOPMENT_TEAM = VXAGBDYAT9;
 				INFOPLIST_FILE = PenguimRush/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mafoltz.PenguimRush;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mafoltz.PenguinRush;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -561,7 +561,7 @@
 				DEVELOPMENT_TEAM = VXAGBDYAT9;
 				INFOPLIST_FILE = PenguimRush/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mafoltz.PenguimRush;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mafoltz.PenguinRush;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -637,7 +637,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		57369C181F420E1E00692C16 /* Build configuration list for PBXNativeTarget "PenguimRush" */ = {
+		57369C181F420E1E00692C16 /* Build configuration list for PBXNativeTarget "PenguinRush" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				57369C191F420E1E00692C16 /* Debug */,
@@ -646,7 +646,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		57369C1B1F420E1E00692C16 /* Build configuration list for PBXNativeTarget "PenguimRushTests" */ = {
+		57369C1B1F420E1E00692C16 /* Build configuration list for PBXNativeTarget "PenguinRushTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				57369C1C1F420E1E00692C16 /* Debug */,
@@ -655,7 +655,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		57369C1E1F420E1E00692C16 /* Build configuration list for PBXNativeTarget "PenguimRushUITests" */ = {
+		57369C1E1F420E1E00692C16 /* Build configuration list for PBXNativeTarget "PenguinRushUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				57369C1F1F420E1E00692C16 /* Debug */,
