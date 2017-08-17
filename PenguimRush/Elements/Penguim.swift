@@ -96,6 +96,8 @@ class Penguim: SKNode, Updatable, Scaleable {
     }
     
     private func walk() {
+        self.removeUnusedFootprints()
+        
         let makeLeftFootprint = SKAction.run {
             self.makeFootprint(direction: .left)
         }
@@ -107,13 +109,12 @@ class Penguim: SKNode, Updatable, Scaleable {
         let secondStep = SKAction.group([SKAction.animate(with: [SKTexture(imageNamed: "PenguinWalk02")], timePerFrame: 0.3), makeLeftFootprint])
         let walk = SKAction.sequence([firstStep, secondStep])
         
-        let beginToImpulse = SKAction.animate(with: [SKTexture(imageNamed: "PenguinWalk03")], timePerFrame: 1.2)
+        let beginToImpulse = SKAction.group([SKAction.animate(with: [SKTexture(imageNamed: "PenguinWalk03")], timePerFrame: 1.2), makeRightFootprint])
         let stopImpulse = SKAction.group([SKAction.animate(with: [SKTexture(imageNamed: "PenguinWalk04")], timePerFrame: 0.3), makeLeftFootprint])
         let impulseSequence = SKAction.sequence([beginToImpulse, stopImpulse])
         
         let impulse = SKAction.run {
             self.physicsBody!.applyImpulse(CGVector(dx: 0, dy: self.impulseVelocity))
-            self.removeUnusedFootprints()
         }
         let takeImpulse = SKAction.group([impulseSequence, impulse])
         
