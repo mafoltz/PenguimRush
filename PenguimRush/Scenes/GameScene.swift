@@ -119,31 +119,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
         self.controllers.append(Controller(with: controller))
     }
     
-    func moveLeft(with playerIndex: Int) {
-        if !self.players.isEmpty {
-            if !self.started {
+    func move(with xGravity: Double, and playerIndex: Int) {
+        
+        if !started {
+            if abs(xGravity) > 0.5 {
                 self.start()
             }
-            else{
-                self.players[playerIndex].moveLeft()
-            }
         }
-    }
-    
-    func moveRight(with playerIndex: Int) {
-        if !self.players.isEmpty {
-            if !self.started {
-                self.start()
+        else {
+            if abs(xGravity) > 0.15 {
+                if xGravity > 0 {
+                    self.players[playerIndex].moveRight()
+                }
+                else {
+                    self.players[playerIndex].moveLeft()
+                }
             }
-            else{
-                self.players[playerIndex].moveRight()
+            else {
+                self.players[playerIndex].moveCenter()
             }
-        }
-    }
-    
-    func moveCenter(with playerIndex: Int) {
-        if !self.players.isEmpty && self.started {
-            self.players[playerIndex].moveCenter()
         }
     }
     
