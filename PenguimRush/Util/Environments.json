@@ -20,9 +20,25 @@
   { "type": "Igloo", "x": -330, "y": 40, "z": 0.1, "flip": false },
   { "type": "Igloo", "x": 400, "y": -40, "z": 0.1, "flip": true },
   { "type": "Igloo", "x": 210, "y": -130, "z": 0.1, "flip": true },
-  { "type": "PineTree01", "x": 350, "y": -240, "z": 0.1, "flip": true },
+  { "type": "PineTree01", "x": 350, "y": -240, "z": 0.1, "flip": false },
   { "type": "Igloo", "x": 180, "y": -320, "z": 0.1, "flip": true },
-  { "type": "Igloo", "x": -280, "y": -340, "z": 0.1, "flip": false },
-  { "type": "Rock", "x": 350, "y": -400, "z": 0.1, "flip": false }]
+  { "type": "Igloo", "x": -250, "y": -340, "z": 0.1, "flip": false },
+  { "type": "Rock", "x": 350, "y": -400, "z": 0.1, "flip": false }],
+ [
+  { "type": "Rock", "x": 260, "y": 450, "z": 0.1, "flip": false },
+  { "type": "PineTree01", "x": -420, "y": 420, "z": 0.1, "flip": false },
+  { "type": "PineTree02", "x": -140, "y": 380, "z": 0.1, "flip": false },
+  { "type": "PineTree01", "x": 340, "y": 380, "z": 0.1, "flip": false },
+  { "type": "PineTree01", "x": -30, "y": 340, "z": 0.1, "flip": false },
+  { "type": "PineTree02", "x": -340, "y": 290, "z": 0.1, "flip": false },
+  { "type": "PineTree01", "x": 400, "y": 250, "z": 0.1, "flip": false },
+  { "type": "PineTree02", "x": 30, "y": 180, "z": 0.1, "flip": false },
+  { "type": "PineTree01", "x": 310, "y": 140, "z": 0.1, "flip": false },
+  { "type": "PineTree03", "x": -50, "y": 70, "z": 0.1, "flip": false },
+  { "type": "PineTree01", "x": -180, "y": 20, "z": 0.1, "flip": false },
+  { "type": "SnowHill", "x": 310, "y": -180, "z": 0.1, "flip": false },
+  { "type": "SnowHill", "x": -390, "y": -200, "z": 0.1, "flip": false },
+  { "type": "SnowHill", "x": 200, "y": -300, "z": 0.1, "flip": false },
+  { "type": "PineTree01", "x": -180, "y": -400, "z": 0.1, "flip": false }]
  ]
  
