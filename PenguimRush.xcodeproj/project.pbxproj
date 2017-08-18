@@ -25,6 +25,7 @@
 		5763C7E31F4231E9000C6DE8 /* ObstacleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5763C7E21F4231E9000C6DE8 /* ObstacleType.swift */; };
 		5763C7E51F4232BA000C6DE8 /* Environments.json in Resources */ = {isa = PBXBuildFile; fileRef = 5763C7E41F4232BA000C6DE8 /* Environments.json */; };
 		579431721F435D8B0049C392 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579431711F435D8B0049C392 /* Path.swift */; };
+		57CD98BB1F472482005E2B5B /* SlidingTrail.sks in Resources */ = {isa = PBXBuildFile; fileRef = 57CD98BA1F472482005E2B5B /* SlidingTrail.sks */; };
 		57D3EC081F460AC500770AD5 /* Trail.sks in Resources */ = {isa = PBXBuildFile; fileRef = 57D3EC061F460AC500770AD5 /* Trail.sks */; };
 		57D3EC0C1F4612EF00770AD5 /* Snow.sks in Resources */ = {isa = PBXBuildFile; fileRef = 57D3EC0A1F4612EF00770AD5 /* Snow.sks */; };
 		57D3EC0D1F4612EF00770AD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57D3EC0B1F4612EF00770AD5 /* Assets.xcassets */; };
@@ -81,6 +82,7 @@
 		5763C7E21F4231E9000C6DE8 /* ObstacleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObstacleType.swift; path = Models/ObstacleType.swift; sourceTree = "<group>"; };
 		5763C7E41F4232BA000C6DE8 /* Environments.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Environments.json; path = Util/Environments.json; sourceTree = "<group>"; };
 		579431711F435D8B0049C392 /* Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Path.swift; path = Elements/Path.swift; sourceTree = "<group>"; };
+		57CD98BA1F472482005E2B5B /* SlidingTrail.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SlidingTrail.sks; sourceTree = "<group>"; };
 		57D3EC061F460AC500770AD5 /* Trail.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Trail.sks; sourceTree = "<group>"; };
 		57D3EC0A1F4612EF00770AD5 /* Snow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Snow.sks; sourceTree = "<group>"; };
 		57D3EC0B1F4612EF00770AD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				57369BF81F420E1E00692C16 /* GameViewController.swift */,
 				57369BF21F420E1E00692C16 /* Actions.sks */,
 				57D3EC0A1F4612EF00770AD5 /* Snow.sks */,
+				57CD98BA1F472482005E2B5B /* SlidingTrail.sks */,
 				57D3EC061F460AC500770AD5 /* Trail.sks */,
 				57369BFA1F420E1E00692C16 /* Main.storyboard */,
 				57D3EC0B1F4612EF00770AD5 /* Assets.xcassets */,
@@ -360,6 +363,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57CD98BB1F472482005E2B5B /* SlidingTrail.sks in Resources */,
 				57D3EC0C1F4612EF00770AD5 /* Snow.sks in Resources */,
 				57D3EC081F460AC500770AD5 /* Trail.sks in Resources */,
 				91B5E0FF1F4638250037BBBD /* Minecraft.ttf in Resources */,

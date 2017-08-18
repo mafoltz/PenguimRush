@@ -64,23 +64,26 @@ class Penguin: SKNode, Updatable, Scaleable {
     }
     
     private func makeFootprint(direction: Direction) {
-        let footprintParticle = SKEmitterNode(fileNamed: "Trail.sks")!
-        footprintParticle.particleZPosition = 0.1
+        let footprintParticle: SKEmitterNode!
         
         let footsDistance: CGFloat = 15
         if direction == .left {
+            footprintParticle = SKEmitterNode(fileNamed: "Trail.sks")
+            footprintParticle.particleZPosition = 0.1
             footprintParticle.particlePosition = CGPoint(x: self.position.x - footsDistance,
                                                          y: self.position.y - self.size.height / 3)
         }
         else if direction == .right {
+            footprintParticle = SKEmitterNode(fileNamed: "Trail.sks")
+            footprintParticle.particleZPosition = 0.1
             footprintParticle.particlePosition = CGPoint(x: self.position.x + footsDistance,
                                                          y: self.position.y - self.size.height / 3)
         }
         else {
-            footprintParticle.particleTexture = SKTexture(imageNamed: "spark")
+            footprintParticle = SKEmitterNode(fileNamed: "SlidingTrail.sks")
+            footprintParticle.particleZPosition = 0.0
             footprintParticle.particlePosition = CGPoint(x: self.position.x,
                                                          y: self.position.y - self.size.height / 3)
-            footprintParticle.particleScale = 3.0
         }
         
         if let scene = self.scene as? GameScene {
