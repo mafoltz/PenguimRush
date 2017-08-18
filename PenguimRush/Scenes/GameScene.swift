@@ -59,6 +59,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
     }
     
     func resetScene() {
+        
+        for player in self.players {
+            player.removeAllActions()
+            player.removeAllChildren()
+            player.removeFromParent()
+        }
+        
+        for conntroller in self.controllers {
+            conntroller.removeAllActions()
+            conntroller.removeAllChildren()
+            conntroller.removeFromParent()
+        }
+        
+        NotificationCenter.default.removeObserver(self)
+        
+        self.controllers = [Controller]()
+        self.players = [Penguin]()
+        
         for child in self.children {
             for childOfChild in child.children{
                 childOfChild.removeAllActions()
@@ -68,10 +86,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ControllerDelegate {
             child.removeAllChildren()
         }
         
-        self.removeAllActions()
-        
         self.blizzardParticle.removeAllActions()
         self.blizzardParticle.removeFromParent()
+        
+        self.removeAllActions()
         
         let scene = GameScene(size: self.size)
         view?.presentScene(scene, transition: SKTransition.crossFade(withDuration: 1))

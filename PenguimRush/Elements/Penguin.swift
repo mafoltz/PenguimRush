@@ -123,7 +123,7 @@ class Penguin: SKNode, Updatable, Scaleable {
         self.sprite.run(walkAnimation, withKey: "animation")
     }
     
-    func update(){
+    internal func update(){
         
         if self.state == .Slide {
             self.walk()

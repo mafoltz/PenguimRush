@@ -89,6 +89,9 @@ class MenuScene: SKScene {
             child.removeFromParent()
         }
         
+        self.blizzardParticle.removeAllActions()
+        self.blizzardParticle.removeFromParent()
+        
         self.removeAllActions()
         
         let scene = GameScene(size: self.size)
