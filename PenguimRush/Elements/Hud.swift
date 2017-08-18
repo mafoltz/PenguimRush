@@ -25,7 +25,7 @@ class Hud: SKNode, Updatable {
         
         self.camera = camera
         
-        self.marginScore = size.height*0.05
+        self.marginScore = 90
         
         self.zPosition = 100
         
