@@ -16,24 +16,20 @@ class Hud: SKNode, Updatable {
     private var distance = Double(0)
     private var marginScore: CGFloat!
     public var updateDisabled = false
+    private var camera: SKCameraNode!
     
-    override init() {
+    init(with camera: SKCameraNode) {
         super.init()
         
         self.size = UIScreen.main.bounds.size
+        
+        self.camera = camera
         
         self.marginScore = size.height*0.05
         
         self.zPosition = 100
         
-        for family in UIFont.familyNames
-        {
-            print("\(family)")
-            for names in UIFont.fontNames(forFamilyName: family)
-            {
-                print("== \(names)")
-            }
-        }
+        //Score
         
         self.score = SKLabelNode(fontNamed: "Helvetica-Bold")
         self.score.fontSize = (size.height*100)/1080
@@ -88,7 +84,7 @@ class Hud: SKNode, Updatable {
             highScoreValueLabel.fontSize = (size.height*40)/1080
             highScoreValueLabel.text = String(format: "%.1f m", userinfo.distance)
             highScoreValueLabel.fontColor = UIColor.black
-            highScoreValueLabel.position.y = (highScoreValueLabel.frame.size.height)
+            highScoreValueLabel.position.y = (highScoreValueLabel.frame.size.height*0.5)
             highScoreValueLabel.zPosition = 100
             scoreboard.addChild(highScoreValueLabel)
             
@@ -96,21 +92,21 @@ class Hud: SKNode, Updatable {
             highScoreLabel.fontSize = (size.height*40)/1080
             highScoreLabel.text = "HIGH SCORE"
             highScoreLabel.fontColor = UIColor.black
-            highScoreLabel.position.y = highScoreValueLabel.position.y + (highScoreValueLabel.frame.size.height) + (highScoreValueLabel.frame.size.height*0.5)
+            highScoreLabel.position.y = highScoreValueLabel.position.y + (highScoreValueLabel.frame.size.height) + (highScoreValueLabel.frame.size.height*0.3)
             highScoreLabel.zPosition = 100
             scoreboard.addChild(highScoreLabel)
             
             
             let scoreLabel = SKLabelNode(fontNamed: "Helvetica-Bold")
-            scoreLabel.fontSize = (size.height*70)/1080
+            scoreLabel.fontSize = (size.height*40)/1080
             scoreLabel.text = "SCORE"
             scoreLabel.fontColor = UIColor.black
-            scoreLabel.position.y = -(scoreLabel.frame.size.height)
+            scoreLabel.position.y = -(scoreLabel.frame.size.height*1.5)
             scoreLabel.zPosition = 100
             scoreboard.addChild(scoreLabel)
             
             let scoreValueLabel = SKLabelNode(fontNamed: "Helvetica-Bold")
-            scoreValueLabel.fontSize = (size.height*70)/1080
+            scoreValueLabel.fontSize = (size.height*40)/1080
             scoreValueLabel.text = String(format: "%.1f m", self.distance)
             scoreValueLabel.fontColor = UIColor.black
             scoreValueLabel.position.y = scoreLabel.position.y - (scoreLabel.frame.size.height) - (scoreLabel.frame.size.height*0.3)
@@ -120,7 +116,7 @@ class Hud: SKNode, Updatable {
         else {
             
             let highScoreValueLabel = SKLabelNode(fontNamed: "Helvetica-Bold")
-            highScoreValueLabel.fontSize = (size.height*90)/1080
+            highScoreValueLabel.fontSize = (size.height*70)/1080
             highScoreValueLabel.text = String(format: "%.1f m", self.distance)
             highScoreValueLabel.fontColor = UIColor.black
             highScoreValueLabel.position.y = -(highScoreValueLabel.frame.size.height)
@@ -128,7 +124,7 @@ class Hud: SKNode, Updatable {
             scoreboard.addChild(highScoreValueLabel)
             
             let highScoreLabel = SKLabelNode(fontNamed: "Helvetica-Bold")
-            highScoreLabel.fontSize = (size.height*55)/1080
+            highScoreLabel.fontSize = (size.height*40)/1080
             highScoreLabel.text = "NEW HIGH SCORE"
             highScoreLabel.fontColor = UIColor.black
             highScoreLabel.position.y = highScoreValueLabel.position.y + (highScoreValueLabel.frame.size.height) + (highScoreValueLabel.frame.size.height*0.5)
@@ -136,25 +132,18 @@ class Hud: SKNode, Updatable {
             scoreboard.addChild(highScoreLabel)
         }
         
-        
-        
         UserInfoManager.updateUserInfo(with: self.distance)
     }
     
     private func updateScore(){
-        if let scene = self.parent as? SKScene {
-            if let cam = scene.camera {
-                
-                let difference = abs(cam.position.y - self.lastYPosition)
-                
-                if difference > (self.size.height*0.01) {
-                    self.score.isHidden = false
-                    self.distance += 0.1
-                    self.lastYPosition = cam.position.y
-                    self.score.text = String(format: "%.1f m", self.distance)
-                }
-                
-            }
+        
+        let difference = abs(self.camera.position.y - self.lastYPosition)
+        
+        if difference > (self.size.height*0.01) {
+            self.score.isHidden = false
+            self.distance += 0.1
+            self.lastYPosition = self.camera.position.y
+            self.score.text = String(format: "%.1f m", self.distance)
         }
         
         self.score.position.x = (self.size.width*0.5) - (self.score.frame.size.width*0.5) - self.marginScore

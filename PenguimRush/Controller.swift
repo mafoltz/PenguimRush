@@ -12,13 +12,17 @@ import SpriteKit
 class Controller: SKNode, Updatable {
     
     private var contoller: GCController!
-    public var delegate: ControllerDelegate!
-    public var playerIndex: Int!
+    private var playerIndex: Int!
     
-    init(with controller: GCController) {
+    public var delegate: ControllerDelegate!
+    
+    init(with controller: GCController, and playerIndex: Int) {
         super.init()
+        
         self.contoller = controller
-        self.playerIndex =  self.contoller.playerIndex.hashValue
+        
+        self.playerIndex = playerIndex
+        
         self.updateScheduler()
     }
     

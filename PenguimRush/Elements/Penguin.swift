@@ -124,9 +124,11 @@ class Penguin: SKNode, Updatable, Scaleable {
     }
     
     func update(){
+        
         if self.state == .Slide {
             self.walk()
             self.state = .Sliding
+            print("Penguin update slide")
         }
         else if self.state == .Sliding {
             self.physicsBody?.velocity = CGVector(dx: (self.physicsBody?.velocity.dx)!, dy: self.velocity)
