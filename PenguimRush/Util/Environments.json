@@ -1,6 +1,12 @@
 [
  [
   { "type": "SnowHill", "x": -350, "y": 400, "z": 0.1, "flip": false },
+  { "type": "PineTree01", "x": 430, "y": 350, "z": 0.1, "flip": false },
+  { "type": "PineTree02", "x": 190, "y": 420, "z": 0.1, "flip": false },
+  { "type": "PineTree02", "x": 270, "y": 310, "z": 0.1, "flip": false },
+  { "type": "Rock", "x": -190, "y": 40, "z": 0.1, "flip": true }],
+ [
+  { "type": "SnowHill", "x": -350, "y": 400, "z": 0.1, "flip": false },
   { "type": "SnowHill", "x": -280, "y": 340, "z": 0.1, "flip": false },
   { "type": "PineTree01", "x": 430, "y": 400, "z": 0.1, "flip": false },
   { "type": "PineTree02", "x": 190, "y": 380, "z": 0.1, "flip": false },

@@ -79,6 +79,11 @@ class Hud: SKNode, Updatable {
         retryButton.zPosition = darkLayer.zPosition + 1
         self.addChild(retryButton)
         
+        let increaseScale = SKAction.scale(by: 1.1, duration: 0.5)
+        let decreaseScale = SKAction.scale(to: 1, duration: 0.5)
+        let animation = SKAction.repeatForever(SKAction.sequence([increaseScale, decreaseScale]))
+        retryButton.run(animation)
+        
         let userinfo = UserInfoManager.getUserInfo()
         
         if userinfo.distance! >= self.distance {

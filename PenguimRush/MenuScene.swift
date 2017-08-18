@@ -25,12 +25,13 @@ class MenuScene: SKScene {
         title.position.y = (self.size.height*0.25)
         addChild(title)
         
-        //HandController
+        //Controller
         
-        let handController = SKSpriteNode(imageNamed: "Controller03")
-        handController.zPosition = 1000
+        let controller = SKSpriteNode(imageNamed: "Controller03")
+        controller.zPosition = 1000
+        controller.position.y = -0.03 * self.size.height
         
-        let moveHandControler = SKAction.animate(with: [
+        let moveControler = SKAction.animate(with: [
             SKTexture(imageNamed: "Controller02"),
             SKTexture(imageNamed: "Controller01"),
             SKTexture(imageNamed: "Controller02"),
@@ -40,9 +41,9 @@ class MenuScene: SKScene {
             SKTexture(imageNamed: "Controller04"),
             SKTexture(imageNamed: "Controller03")
             ], timePerFrame: 0.3)
-        let forever = SKAction.repeatForever(moveHandControler)
-        handController.run(forever)
-        self.addChild(handController)
+        let forever = SKAction.repeatForever(moveControler)
+        controller.run(forever)
+        self.addChild(controller)
         
         //Scenary
         
@@ -74,6 +75,11 @@ class MenuScene: SKScene {
         playButton.fontColor = UIColor(red: 1.0/255.0, green: 92.0/255.0, blue: 152.0/255.0, alpha: 1)
         playButton.position.y = -(self.size.height*0.25)
         self.addChild(playButton)
+        
+        let increaseScale = SKAction.scale(by: 1.1, duration: 0.5)
+        let decreaseScale = SKAction.scale(to: 1, duration: 0.5)
+        let animation = SKAction.repeatForever(SKAction.sequence([increaseScale, decreaseScale]))
+        playButton.run(animation)
         
         //Blizzard
         

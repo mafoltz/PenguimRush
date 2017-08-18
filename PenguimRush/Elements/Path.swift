@@ -10,6 +10,11 @@ import SpriteKit
 
 class Path: SKNode {
     
+    enum State {
+        case Beginner
+        case Random
+    }
+    
     private var availableEnvironments = [Environment]()
     private var environments = [Environment]()
     private var lastObstacleYPosition: CGFloat!
@@ -20,9 +25,8 @@ class Path: SKNode {
         
         self.json = JsonReader.openJson(named: "Environments")!
         
-        for _ in 1...2 {
-            updateEnvironment()
-        }
+        updateEnvironment(state: .Beginner)
+        updateEnvironment(state: .Beginner)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -38,8 +42,15 @@ class Path: SKNode {
         self.lastObstacleYPosition! += environment.size.height
     }
     
-    private func updateEnvironment() {
-        let index = Int(arc4random_uniform(UInt32(json.count)))
+    private func updateEnvironment(state: State) {
+        let index: Int!
+        
+        if state == .Random {
+            index = Int(arc4random_uniform(UInt32(json.count - 1))) + 1
+        }
+        else {
+            index = 0
+        }
         
         var newEnvironment = self.availableEnvironments.filter({ (environment) -> Bool in
             return environment.index == index
@@ -63,7 +74,7 @@ class Path: SKNode {
     func updatePosition(at currentPosition: CGPoint) {
         if currentPosition.y - environments.first!.position.y > (environments.first!.size.height) {
             self.availableEnvironments.append(environments.removeFirst())
-            self.updateEnvironment()
+            self.updateEnvironment(state: .Random)
         }
     }
 }
