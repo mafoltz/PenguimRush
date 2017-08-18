@@ -17,13 +17,15 @@ class Obstacle: SKSpriteNode {
         
         super.init(texture: texture, color: color, size: size)
         
-        self.physicsBody = SKPhysicsBody(texture: texture, size: size)
-        self.physicsBody!.affectedByGravity = false
-        self.physicsBody!.allowsRotation = false
-        self.physicsBody!.friction = 0
-        self.physicsBody!.isDynamic = false
-        self.physicsBody!.categoryBitMask = ColliderType.Obstacle.rawValue
-        self.physicsBody!.contactTestBitMask = ColliderType.Penguin.rawValue
+        if !( type == .PineGroupLeft || type == .PineGroupRight ) {
+            self.physicsBody = SKPhysicsBody(texture: texture, size: size)
+            self.physicsBody!.affectedByGravity = false
+            self.physicsBody!.allowsRotation = false
+            self.physicsBody!.friction = 0
+            self.physicsBody!.isDynamic = false
+            self.physicsBody!.categoryBitMask = ColliderType.Obstacle.rawValue
+            self.physicsBody!.contactTestBitMask = ColliderType.Penguin.rawValue
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

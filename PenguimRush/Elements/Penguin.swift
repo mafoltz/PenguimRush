@@ -148,12 +148,13 @@ class Penguin: SKNode, Updatable, Scaleable {
             self.physicsBody?.velocity = CGVector(dx: (self.physicsBody?.velocity.dx)!, dy: self.velocity)
             
             let screenWidth = UIScreen.main.bounds.width
+            let margin: CGFloat = 500
             
-            if self.position.x > (screenWidth/2) {
-                self.position.x = (screenWidth/2)
+            if self.position.x > (screenWidth/2) - margin {
+                self.position.x = (screenWidth/2) - margin
             }
-            else if self.position.x < -(screenWidth/2) {
-                self.position.x = -(screenWidth/2)
+            else if self.position.x < -(screenWidth/2) + margin {
+                self.position.x = -(screenWidth/2) + margin
             }
         }
         else if self.state == .Crashed {
