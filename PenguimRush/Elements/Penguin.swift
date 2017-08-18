@@ -21,6 +21,7 @@ class Penguin: SKNode, Updatable, Scaleable {
     public enum Direction {
         case left
         case right
+        case center
     }
     
     var size: CGSize = CGSize(width: 0, height: 0)
@@ -71,9 +72,15 @@ class Penguin: SKNode, Updatable, Scaleable {
             footprintParticle.particlePosition = CGPoint(x: self.position.x - footsDistance,
                                                          y: self.position.y - self.size.height / 3)
         }
-        else {
+        else if direction == .right {
             footprintParticle.particlePosition = CGPoint(x: self.position.x + footsDistance,
                                                          y: self.position.y - self.size.height / 3)
+        }
+        else {
+            footprintParticle.particleTexture = SKTexture(imageNamed: "spark")
+            footprintParticle.particlePosition = CGPoint(x: self.position.x,
+                                                         y: self.position.y - self.size.height / 3)
+            footprintParticle.particleScale = 3.0
         }
         
         if let scene = self.scene as? GameScene {
@@ -96,8 +103,6 @@ class Penguin: SKNode, Updatable, Scaleable {
     }
     
     private func walk() {
-        self.removeUnusedFootprints()
-        
         let makeLeftFootprint = SKAction.run {
             self.makeFootprint(direction: .left)
         }
@@ -113,9 +118,12 @@ class Penguin: SKNode, Updatable, Scaleable {
         let stopImpulse = SKAction.group([SKAction.animate(with: [SKTexture(imageNamed: "PenguinWalk04")], timePerFrame: 0.3), makeLeftFootprint])
         let impulseSequence = SKAction.sequence([beginToImpulse, stopImpulse])
         
-        let impulse = SKAction.run {
-            self.physicsBody!.applyImpulse(CGVector(dx: 0, dy: self.impulseVelocity))
+        let impulsePrint = SKAction.run {
+            self.makeFootprint(direction: .center)
+            //self.physicsBody!.applyImpulse(CGVector(dx: 0, dy: self.impulseVelocity))
         }
+        let impulsePrintSequence = SKAction.sequence([impulsePrint, SKAction.wait(forDuration: 0.01)])
+        let impulse = SKAction.sequence([SKAction.wait(forDuration: 0.3), SKAction.repeat(impulsePrintSequence, count: 60)])
         let takeImpulse = SKAction.group([impulseSequence, impulse])
         
         let oneStepAnimation = SKAction.sequence([walk, takeImpulse])
@@ -146,6 +154,8 @@ class Penguin: SKNode, Updatable, Scaleable {
             self.physicsBody!.pinned = true
             self.sprite.removeAction(forKey: "animation")
         }
+        
+        self.removeUnusedFootprints()
     }
     
     public func moveLeft(){
@@ -165,7 +175,6 @@ class Penguin: SKNode, Updatable, Scaleable {
     }
     
     public func moveCenter(){
-//        self.physicsBody!.velocity.dx = 0
         if self.action(forKey: "move") == nil && self.zPosition != 0 {
             let rotateAction = SKAction.rotate(toAngle: 0, duration: actionTime)
             self.run(rotateAction, withKey: "move")
