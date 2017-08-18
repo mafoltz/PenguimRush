@@ -594,7 +594,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mafoltz.PenguimRushTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PenguimRush.app/PenguimRush";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PenguinRush.app/PenguinRush";
 			};
 			name = Debug;
 		};
@@ -609,7 +609,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mafoltz.PenguimRushTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PenguimRush.app/PenguimRush";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PenguinRush.app/PenguinRush";
 			};
 			name = Release;
 		};
@@ -622,8 +622,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mafoltz.PenguimRushUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = PenguimRush;
+				TEST_TARGET_NAME = PenguinRush;
 			};
 			name = Debug;
 		};
@@ -636,8 +637,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mafoltz.PenguimRushUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = PenguimRush;
+				TEST_TARGET_NAME = PenguinRush;
 			};
 			name = Release;
 		};

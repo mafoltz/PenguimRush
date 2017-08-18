@@ -24,11 +24,29 @@ class PenguimRushTests: XCTestCase {
     
     func testGameScene() {
         let gameViewController = GameViewController()
+        gameViewController.view = SKView()
         gameViewController.viewDidLoad()
         gameViewController.didReceiveMemoryWarning()
         
         let gameScene = GameScene()
         gameScene.didMove(to: gameViewController.view as! SKView)
         gameScene.didBegin(SKPhysicsContact())
+        gameScene.controllerDisconnected()
+        gameScene.resetScene()
+        gameScene.connectControllers()
+        gameScene.move(with: 2.1, and: 0)
+        
+        UserInfoManager.updateUserInfo(with: 123.4)
+        UserInfoManager.resetUserInfo()
+    }
+    
+    func testPenguin() {
+        let penguin = Penguin()
+        penguin.moveCenter()
+        penguin.moveLeft()
+        penguin.moveRight()
+        penguin.update()
+        penguin.updateScale(forDeviceWidthPercentage: 0.3)
+        penguin.updateScale(forDeviceHeightPercentage: 0.2)
     }
 }
