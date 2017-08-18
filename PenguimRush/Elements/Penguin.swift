@@ -96,11 +96,14 @@ class Penguin: SKNode, Updatable, Scaleable {
     
     private func removeUnusedFootprints() {
         for footprintParticle in footprintsParticles {
-            if let scene = self.scene as? GameScene {
-                if footprintParticle.position.y < (scene.camera?.position.y)! {
-                    footprintParticle.removeAllActions()
-                    footprintParticle.removeFromParent()
-                }
+            if footprintParticle.particlePosition.y < self.position.y - 400 {
+                footprintParticle.removeAllActions()
+                footprintParticle.removeFromParent()
+                
+                let index = footprintsParticles.index(of: footprintParticle)
+                footprintsParticles.remove(at: index!)
+                
+                break
             }
         }
     }
