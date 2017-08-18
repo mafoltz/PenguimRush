@@ -27,17 +27,19 @@ class MenuScene: SKScene {
         
         //HandController
         
-        let handController = SKSpriteNode(imageNamed: "CenterController")
-        handController.xScale = 0.5
-        handController.yScale = 0.5
+        let handController = SKSpriteNode(imageNamed: "Controller03")
         handController.zPosition = 1000
         
         let moveHandControler = SKAction.animate(with: [
-            SKTexture(imageNamed: "RightController"),
-            SKTexture(imageNamed: "CenterController"),
-            SKTexture(imageNamed: "LeftController"),
-            SKTexture(imageNamed: "CenterController")
-            ], timePerFrame: 0.5)
+            SKTexture(imageNamed: "Controller02"),
+            SKTexture(imageNamed: "Controller01"),
+            SKTexture(imageNamed: "Controller02"),
+            SKTexture(imageNamed: "Controller03"),
+            SKTexture(imageNamed: "Controller04"),
+            SKTexture(imageNamed: "Controller05"),
+            SKTexture(imageNamed: "Controller04"),
+            SKTexture(imageNamed: "Controller03")
+            ], timePerFrame: 0.3)
         let forever = SKAction.repeatForever(moveHandControler)
         handController.run(forever)
         self.addChild(handController)
@@ -63,6 +65,15 @@ class MenuScene: SKScene {
         pineGroupLeft.position.x = -(self.size.width*0.5) + (pineGroupLeft.size.width*0.5) + marginDistance
         pineGroupLeft.zPosition = scenaryLeft.zPosition + 0.1
         self.addChild(pineGroupLeft)
+        
+        //TAP TO PLAY
+        
+        let playButton = SKLabelNode(fontNamed: "Helvetica-Bold")
+        playButton.fontSize = (size.height*65)/1080
+        playButton.text = "TAP TO PLAY"
+        playButton.fontColor = UIColor(red: 1.0/255.0, green: 92.0/255.0, blue: 152.0/255.0, alpha: 1)
+        playButton.position.y = -(self.size.height*0.25)
+        self.addChild(playButton)
         
         //Blizzard
         

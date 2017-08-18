@@ -68,10 +68,13 @@ class Hud: SKNode, Updatable {
         
         let gameOver = SKSpriteNode(imageNamed: "GameOver")
         gameOver.position.y = (self.size.height*0.5) - (difference*0.5)
-        gameOver.zPosition = darkLayer.zPosition + 1
+        gameOver.zPosition = 100
         self.addChild(gameOver)
         
-        let retryButton = SKSpriteNode(imageNamed: "RetryButton")
+        let retryButton = SKLabelNode(fontNamed: "Helvetica-Bold")
+        retryButton.fontSize = (size.height*65)/1080
+        retryButton.text = "TAP TO RETRY"
+        retryButton.fontColor = UIColor(red: 198.0/255.0, green: 234.0/255.0, blue: 249.0/255.0, alpha: 1)
         retryButton.position.y = -(self.size.height*0.5) + (difference*0.5)
         retryButton.zPosition = darkLayer.zPosition + 1
         self.addChild(retryButton)
@@ -83,7 +86,7 @@ class Hud: SKNode, Updatable {
             let highScoreValueLabel = SKLabelNode(fontNamed: "Helvetica-Bold")
             highScoreValueLabel.fontSize = (size.height*40)/1080
             highScoreValueLabel.text = String(format: "%.1f m", userinfo.distance)
-            highScoreValueLabel.fontColor = UIColor.black
+            highScoreValueLabel.fontColor = self.score.fontColor
             highScoreValueLabel.position.y = (highScoreValueLabel.frame.size.height*0.5)
             highScoreValueLabel.zPosition = 100
             scoreboard.addChild(highScoreValueLabel)
@@ -91,7 +94,7 @@ class Hud: SKNode, Updatable {
             let highScoreLabel = SKLabelNode(fontNamed: "Helvetica-Bold")
             highScoreLabel.fontSize = (size.height*40)/1080
             highScoreLabel.text = "HIGH SCORE"
-            highScoreLabel.fontColor = UIColor.black
+            highScoreLabel.fontColor = self.score.fontColor
             highScoreLabel.position.y = highScoreValueLabel.position.y + (highScoreValueLabel.frame.size.height) + (highScoreValueLabel.frame.size.height*0.3)
             highScoreLabel.zPosition = 100
             scoreboard.addChild(highScoreLabel)
@@ -100,7 +103,7 @@ class Hud: SKNode, Updatable {
             let scoreLabel = SKLabelNode(fontNamed: "Helvetica-Bold")
             scoreLabel.fontSize = (size.height*40)/1080
             scoreLabel.text = "SCORE"
-            scoreLabel.fontColor = UIColor.black
+            scoreLabel.fontColor = self.score.fontColor
             scoreLabel.position.y = -(scoreLabel.frame.size.height*1.5)
             scoreLabel.zPosition = 100
             scoreboard.addChild(scoreLabel)
@@ -108,7 +111,7 @@ class Hud: SKNode, Updatable {
             let scoreValueLabel = SKLabelNode(fontNamed: "Helvetica-Bold")
             scoreValueLabel.fontSize = (size.height*40)/1080
             scoreValueLabel.text = String(format: "%.1f m", self.distance)
-            scoreValueLabel.fontColor = UIColor.black
+            scoreValueLabel.fontColor = self.score.fontColor
             scoreValueLabel.position.y = scoreLabel.position.y - (scoreLabel.frame.size.height) - (scoreLabel.frame.size.height*0.3)
             scoreValueLabel.zPosition = 100
             scoreboard.addChild(scoreValueLabel)
@@ -118,7 +121,7 @@ class Hud: SKNode, Updatable {
             let highScoreValueLabel = SKLabelNode(fontNamed: "Helvetica-Bold")
             highScoreValueLabel.fontSize = (size.height*70)/1080
             highScoreValueLabel.text = String(format: "%.1f m", self.distance)
-            highScoreValueLabel.fontColor = UIColor.black
+            highScoreValueLabel.fontColor = self.score.fontColor
             highScoreValueLabel.position.y = -(highScoreValueLabel.frame.size.height)
             highScoreValueLabel.zPosition = 100
             scoreboard.addChild(highScoreValueLabel)
@@ -126,7 +129,7 @@ class Hud: SKNode, Updatable {
             let highScoreLabel = SKLabelNode(fontNamed: "Helvetica-Bold")
             highScoreLabel.fontSize = (size.height*40)/1080
             highScoreLabel.text = "NEW HIGH SCORE"
-            highScoreLabel.fontColor = UIColor.black
+            highScoreLabel.fontColor = self.score.fontColor
             highScoreLabel.position.y = highScoreValueLabel.position.y + (highScoreValueLabel.frame.size.height) + (highScoreValueLabel.frame.size.height*0.5)
             highScoreLabel.zPosition = 100
             scoreboard.addChild(highScoreLabel)
