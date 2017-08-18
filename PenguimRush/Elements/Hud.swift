@@ -61,6 +61,7 @@ class Hud: SKNode, Updatable {
         self.addChild(darkLayer)
         
         let scoreboard = SKSpriteNode(imageNamed: "Scoreboard")
+        scoreboard.position.y = -0.05 * self.size.height
         scoreboard.zPosition = darkLayer.zPosition + 1
         self.addChild(scoreboard)
         
