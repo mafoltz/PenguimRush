@@ -7,7 +7,8 @@
 //
 
 import XCTest
-@testable import PenguimRush
+import SpriteKit
+@testable import PenguinRush
 
 class PenguimRushTests: XCTestCase {
     
@@ -21,16 +22,13 @@ class PenguimRushTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testGameScene() {
+        let gameViewController = GameViewController()
+        gameViewController.viewDidLoad()
+        gameViewController.didReceiveMemoryWarning()
+        
+        let gameScene = GameScene()
+        gameScene.didMove(to: gameViewController.view as! SKView)
+        gameScene.didBegin(SKPhysicsContact())
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }
